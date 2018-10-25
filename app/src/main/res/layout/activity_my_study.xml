@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myStudyActivity"
+    android:orientation="vertical"
+    android:background="@drawable/loginbg7">
+
+    <!--标题栏-->
+    <com.example.Tiga.Main.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.example.Tiga.Main.TitleLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="web"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="数据库2"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="okhttp"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/btn_4"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+            <Button
+                android:id="@+id/btn_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/btn_5"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="xx"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+            <Button
+                android:id="@+id/btn_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="通知"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+            <Button
+                android:id="@+id/btn_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="对话框"
+                android:textColor="#FF009588"
+                android:layout_marginBottom="10dp"
+                android:background="#00000000"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

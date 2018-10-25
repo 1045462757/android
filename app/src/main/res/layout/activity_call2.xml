@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Call2Activity"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系人:"
+        android:textSize="24sp"
+        android:textColor="#d90f0f"/>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="15696136261"
+        android:textSize="22dp"/>
+
+    <TextView
+        android:id="@+id/tv_phone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17623096116"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_phone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13330210791"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="草稿:"
+        android:textSize="24sp"
+        android:textColor="#d90f0f"/>
+
+
+    <TextView
+        android:id="@+id/tv_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你好！"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_sms1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你叫什么名字?"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_sms2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你来自哪里?"
+        android:textSize="22dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
