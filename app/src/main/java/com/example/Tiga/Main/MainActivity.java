@@ -148,7 +148,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 ConfirmExit();
                 break;
             case R.id.about:
-                Toast.makeText(this, "tiga版权所有!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "tiga", Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
