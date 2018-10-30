@@ -59,6 +59,8 @@ public class myStudyActivity extends BaseActivity implements View.OnClickListene
                 startActivity(intent);
                 break;
             case R.id.btn_4:
+                intent.setClass(myStudyActivity.this,ParseXmlActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_5:
                 intent.setClass(myStudyActivity.this, CallActivity.class);

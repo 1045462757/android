@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.Tiga.Main.ParseXmlActivity">
+    tools:context="com.example.Tiga.Main.ParseXmlActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_PullParseLocal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="PULL解析本地xml"/>
+
+        <Button
+            android:id="@+id/btn_PullParseHttp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="PULL解析网络xml"/>
+
+
+        <Button
+            android:id="@+id/btn_SaxParseLocal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="SAX解析本地xml"/>
+
+        <Button
+            android:id="@+id/btn_SaxParseHttp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="SAX解析网络xml"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_JsonObjectParseHttp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="JSONObject解析网络json"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_parse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解析数据"
+        android:textSize="20dp"
+        android:textColor="#d31212"
+        android:paddingHorizontal="20dp"/>
+
+</LinearLayout>
