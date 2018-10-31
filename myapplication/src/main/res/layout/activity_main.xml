@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Calculator"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="right"
+        android:hint="0"
+        android:paddingRight="20dp" />
+
+
+    <!--第一行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_Delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="<-" />
+
+        <Button
+            android:id="@+id/btn_Add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/btn_Subtract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/btn_Reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="C" />
+
+    </LinearLayout>
+
+
+    <!--第二行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="3dp">
+
+        <Button
+            android:id="@+id/btn_Seven"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn_Eight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn_Nine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btn_Multiply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="X" />
+
+    </LinearLayout>
+
+
+    <!--第三行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="3dp">
+
+        <Button
+            android:id="@+id/btn_Four"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn_Five"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn_Six"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btn_Divide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="/" />
+
+    </LinearLayout>
+
+
+    <!--第四行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="3dp">
+
+        <Button
+            android:id="@+id/btn_One"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn_Two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn_Three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btn_Percentage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="%" />
+
+    </LinearLayout>
+
+
+    <!--第五行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="3dp">
+
+        <Button
+            android:id="@+id/btn_Zero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="2"
+            android:background="@drawable/shape"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btn_Dot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="." />
+
+        <Button
+            android:id="@+id/btn_Equals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:text="=" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

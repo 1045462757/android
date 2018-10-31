@@ -117,6 +117,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 user.setIntroduction(user1.getIntroduction());
             }
             if (PassWord.equals(user.getPassWord())) {
+                Toast.makeText(this, "登录成功!", Toast.LENGTH_SHORT).show();
                 return true;
             } else {
                 Toast.makeText(this, "密码错误!", Toast.LENGTH_SHORT).show();

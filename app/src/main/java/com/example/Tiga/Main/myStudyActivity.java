@@ -32,6 +32,7 @@ public class myStudyActivity extends BaseActivity implements View.OnClickListene
         mBtn6 = findViewById(R.id.btn_6);
         mBtn7 = findViewById(R.id.btn_7);
         mBtn8 = findViewById(R.id.btn_8);
+
         mBtn1.setOnClickListener(this);
         mBtn2.setOnClickListener(this);
         mBtn3.setOnClickListener(this);
@@ -67,6 +68,8 @@ public class myStudyActivity extends BaseActivity implements View.OnClickListene
                 startActivity(intent);
                 break;
             case R.id.btn_6:
+                intent.setClass(myStudyActivity.this,RecyclerViewActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_7:
                 intent.setClass(myStudyActivity.this, NotificationActivity.class);

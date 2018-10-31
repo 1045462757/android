@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginbg5"
     android:orientation="vertical"
-    tools:context="com.example.Tiga.Login.RegisterActivity"
-    android:background="@drawable/loginbg5">
+    tools:context="com.example.Tiga.Login.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
         android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -24,78 +24,81 @@
             android:textColor="#da0a0a"
             android:textSize="24dp" />
 
+
+        <!--第一行-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="账号:"
-                android:textSize="20dp"
-                android:textColor="#a01919"
-                android:layout_marginTop="20dp"/>
+                android:layout_gravity="bottom"
+                android:padding="13dp"
+                android:src="@drawable/user" />
 
             <EditText
                 android:id="@+id/et_Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:hint="@string/et_Id"
                 android:inputType="text"
                 android:padding="20dp" />
 
-         </LinearLayout>
+        </LinearLayout>
 
+
+        <!--第二行-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="密码:"
-                android:textSize="20dp"
-                android:textColor="#a01919"
-                android:layout_marginTop="20dp"/>
+                android:layout_gravity="bottom"
+                android:padding="13dp"
+                android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/et_PassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:hint="@string/et_PassWord"
                 android:inputType="textPassword"
                 android:padding="20dp" />
 
-         </LinearLayout>
+        </LinearLayout>
 
+
+        <!--第三行-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="密码:"
-                android:textSize="20dp"
-                android:textColor="#a01919"
-                android:layout_marginTop="20dp"/>
+                android:layout_gravity="bottom"
+                android:padding="13dp"
+                android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/et_PassWord2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:hint="@string/et_RepeatPassWord"
                 android:inputType="textPassword"
                 android:padding="20dp" />
@@ -106,8 +109,9 @@
             android:id="@+id/btn_Register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="13dp"
             android:layout_marginTop="20dp"
-            android:background="#FF009588"
+            android:background="@drawable/shape"
             android:text="@string/btn_Register"
             android:textColor="#FFFFFF"
             android:textSize="22dp" />

@@ -19,12 +19,14 @@ import android.widget.Toast;
 import com.example.Tiga.Login.ModifyInformationActivity;
 import com.example.Tiga.Login.PersonalInformationActivity;
 import com.example.Tiga.Login.User;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mBtnMain;
     private Button mBtnAbout;
     private Button mBtnSetting;
+    private FloatingActionButton btn_FloatingButton;
     private DrawerLayout drawerLayout;
 
     private TextView tv_Name;
@@ -58,6 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnMain = findViewById(R.id.btn_Main);
         mBtnAbout = findViewById(R.id.btn_About);
         mBtnSetting = findViewById(R.id.btn_Setting);
+        btn_FloatingButton = findViewById(R.id.btn_FloatingButton);
 
         tv_Name = findViewById(R.id.tv_Name);
         tv_Sex = findViewById(R.id.tv_Sex);
@@ -69,6 +72,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnAbout.setOnClickListener(this);
         mBtnSetting.setOnClickListener(this);
         btn_Modify.setOnClickListener(this);
+        btn_FloatingButton.setOnClickListener(this);
 
         mainFragment = new MainFragment();
         aboutFragment = new AboutFragment();
@@ -103,6 +107,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 intent.setClass(MainActivity.this,ModifyInformationActivity.class);
                 intent.putExtras(UserData);
                 startActivity(intent);
+                break;
+            case R.id.btn_FloatingButton:
+                Toast.makeText(this, "这是悬浮按钮哟!", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
