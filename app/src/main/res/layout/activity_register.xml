@@ -36,17 +36,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="13dp"
+                android:padding="10dp"
                 android:src="@drawable/user" />
 
             <EditText
                 android:id="@+id/et_Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/et_Id"
                 android:inputType="text"
+                android:maxLength="15"
                 android:padding="20dp" />
 
         </LinearLayout>
@@ -63,17 +64,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="13dp"
+                android:padding="10dp"
                 android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/et_PassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/et_PassWord"
                 android:inputType="textPassword"
+                android:maxLength="20"
                 android:padding="20dp" />
 
         </LinearLayout>
@@ -90,17 +92,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="13dp"
+                android:padding="10dp"
                 android:src="@drawable/password" />
 
             <EditText
                 android:id="@+id/et_PassWord2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/et_RepeatPassWord"
                 android:inputType="textPassword"
+                android:maxLength="20"
                 android:padding="20dp" />
 
         </LinearLayout>
@@ -109,7 +112,7 @@
             android:id="@+id/btn_Register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="13dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/shape"
             android:text="@string/btn_Register"

@@ -38,7 +38,7 @@
             android:layout_marginRight="3dp"
             android:layout_weight="1"
             android:background="@drawable/shape"
-            android:text="<-" />
+            android:text="--" />
 
         <Button
             android:id="@+id/btn_Add"
@@ -238,6 +238,15 @@
             android:text="=" />
 
     </LinearLayout>
+
+    <Spinner
+        android:id="@+id/sp_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="right">
+
+    </Spinner>
 
 
 </LinearLayout>

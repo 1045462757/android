@@ -15,8 +15,8 @@ public class VersionDataAdapter extends ArrayAdapter<VersionData> {
 
     private int resourceId;
 
-    public VersionDataAdapter(Context context, int textViewResourceId, List<VersionData> versionData){
-        super(context,textViewResourceId,versionData);
+    public VersionDataAdapter(Context context, int textViewResourceId, List<VersionData> versionData) {
+        super(context, textViewResourceId, versionData);
         resourceId = textViewResourceId;
     }
 
@@ -25,7 +25,7 @@ public class VersionDataAdapter extends ArrayAdapter<VersionData> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         VersionData versionData = getItem(position);  //获取当前VersionData实例
-        View view = LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
+        View view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
 
         TextView tv_title = view.findViewById(R.id.tv_title);
         TextView tv_time = view.findViewById(R.id.tv_time);

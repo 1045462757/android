@@ -82,10 +82,30 @@ public class ParseXmlActivity extends BaseActivity implements View.OnClickListen
 
     class User {
 
+        private int PhotoId;
         private String Account;
         private String Name;
         private String Sex;
         private String Age;
+
+        public User() {
+        }
+
+        public User(int photoId, String account, String name, String sex, String age) {
+            PhotoId = photoId;
+            Account = account;
+            Name = name;
+            Sex = sex;
+            Age = age;
+        }
+
+        public int getPhotoId() {
+            return PhotoId;
+        }
+
+        public void setPhotoId(int photoId) {
+            PhotoId = photoId;
+        }
 
         public String getAccount() {
             return Account;

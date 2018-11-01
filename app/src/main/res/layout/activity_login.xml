@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbg7"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,17 +34,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="13dp"
+                android:padding="10dp"
                 android:src="@drawable/user" />
 
             <EditText
                 android:id="@+id/et_Account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/et_Id"
                 android:inputType="text"
+                android:maxLength="15"
                 android:padding="20dp" />
 
         </LinearLayout>
@@ -64,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="13dp"
+                android:padding="10dp"
                 android:src="@drawable/password" />
 
 
@@ -72,10 +71,11 @@
                 android:id="@+id/et_PassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/et_PassWord"
                 android:inputType="textPassword"
+                android:maxLength="20"
                 android:padding="20dp" />
 
         </LinearLayout>
@@ -102,7 +102,7 @@
             android:id="@+id/btn_Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="13dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/shape"
             android:text="@string/btn_Login"
@@ -123,7 +123,7 @@
                 android:layout_weight="1"
                 android:background="#00000000"
                 android:gravity="left"
-                android:paddingLeft="13dp"
+                android:paddingLeft="10dp"
                 android:paddingTop="20dp"
                 android:text="@string/btn_ForgetPassWord"
                 android:textColor="#da0a0a"
@@ -136,7 +136,7 @@
                 android:layout_weight="1"
                 android:background="#00000000"
                 android:gravity="right"
-                android:paddingRight="13dp"
+                android:paddingRight="10dp"
                 android:paddingTop="20dp"
                 android:text="@string/btn_NotOwnUser"
                 android:textColor="#da0a0a"

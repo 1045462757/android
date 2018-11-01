@@ -2,10 +2,12 @@ package com.example.Tiga.Main;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,42 +17,48 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
-    private List<User> users;
+    private List<RecyclerViewActivity.User> users;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
+        ImageView iv_photo;
         TextView Account;
-        TextView PassWord;
         TextView Name;
         TextView Sex;
         TextView Age;
-        TextView Introduction;
         View UserView;
 
         public ViewHolder(View view) {
             super(view);
+            iv_photo = view.findViewById(R.id.iv_photo);
             Account = view.findViewById(R.id.tv_Account);
-            PassWord = view.findViewById(R.id.tv_PassWord);
             Name = view.findViewById(R.id.tv_Name);
             Sex = view.findViewById(R.id.tv_Sex);
             Age = view.findViewById(R.id.tv_Age);
-            Introduction = view.findViewById(R.id.tv_Introduction);
             UserView = view;
         }
     }
 
-    public UserAdapter(List<User> userList) {
+    public UserAdapter(List<RecyclerViewActivity.User> userList) {
         users = userList;
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
+        holder.iv_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                RecyclerViewActivity.User user = users.get(position);
+                Toast.makeText(v.getContext(), String.valueOf(user.getPhotoId()), Toast.LENGTH_SHORT).show();
+            }
+        });
         holder.Account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                User user = users.get(position);
+                RecyclerViewActivity.User user = users.get(position);
                 Toast.makeText(v.getContext(), user.getAccount(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -58,23 +66,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                User user = users.get(position);
+                RecyclerViewActivity.User user = users.get(position);
                 Toast.makeText(v.getContext(), user.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.PassWord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getPassWord(), Toast.LENGTH_SHORT).show();
             }
         });
         holder.Sex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                User user = users.get(position);
+                RecyclerViewActivity.User user = users.get(position);
                 Toast.makeText(v.getContext(), user.getSex(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -82,16 +82,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                User user = users.get(position);
-                Toast.makeText(v.getContext(), String.valueOf(user.getAge()), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.Introduction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getIntroduction(), Toast.LENGTH_SHORT).show();
+                RecyclerViewActivity.User user = users.get(position);
+                Toast.makeText(v.getContext(), user.getAge(), Toast.LENGTH_SHORT).show();
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -121,27 +113,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     public void onBindViewHolder(ViewHolder holder, int position) {
-        User user = users.get(position);
+        RecyclerViewActivity.User user = users.get(position);
+        holder.iv_photo.setImageResource(user.getPhotoId());
         holder.Account.setText(user.getAccount());
-        holder.PassWord.setText(user.getPassWord());
         holder.Name.setText(user.getName());
         holder.Sex.setText(user.getSex());
-        holder.Age.setText(String.valueOf(user.getAge()));
-        holder.Introduction.setText(user.getIntroduction());
+        holder.Age.setText(user.getAge());
     }
 
     public int getItemCount() {
         return users.size();
     }
 
-    public void addItem(){
-        User user = new User("0","0","新用户","x",0,"xxx");
-        users.add(0,user);
-        notifyItemInserted(0);
-    }
-
-    public void DeleteItem(int position){
-        users.remove(position);
-        notifyItemRemoved(position);
-    }
 }

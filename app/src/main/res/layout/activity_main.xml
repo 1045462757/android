@@ -48,8 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="20dp">
-        </com.getbase.floatingactionbutton.FloatingActionButton>
+            android:layout_margin="20dp"></com.getbase.floatingactionbutton.FloatingActionButton>
 
 
         <!--底部导航栏-->
@@ -63,39 +62,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#00000000"
+                android:background="@drawable/shape_tap"
                 android:text="主  页"
                 android:textColor="#ca0e0e"
                 android:textSize="26dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#a0114a"
-                android:text=" " />
 
             <Button
                 android:id="@+id/btn_About"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#00000000"
+                android:background="@drawable/shape_tap"
                 android:text="关  于"
                 android:textColor="#ca0e0e"
                 android:textSize="26dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#a0114a"
-                android:text=" " />
 
             <Button
                 android:id="@+id/btn_Setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#00000000"
+                android:background="@drawable/shape_tap"
                 android:text="设  置"
                 android:textColor="#ca0e0e"
                 android:textSize="26dp" />
@@ -104,137 +92,167 @@
 
     </LinearLayout>
 
+
+    <!--抽屉栏-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        android:focusableInTouchMode="true"
-        android:focusable="true"
         android:layout_gravity="start"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="个人信息"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:textSize="24sp"
-            android:layout_gravity="center_horizontal"/>
+            android:text="个人信息"
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="姓名:"
                 android:layout_marginTop="20dp"
+                android:text="姓名:"
                 android:textColor="#a01919"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="不告诉你"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
+                android:text="不告诉你"
                 android:textColor="#a01919"
-                android:textSize="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="性别:"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="#a01919"/>
+                android:text="性别:"
+                android:textColor="#a01919"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_Sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="你猜呀"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
+                android:text="你猜呀"
                 android:textColor="#a01919"
-                android:textSize="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="年龄:"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="#a01919"/>
+                android:text="年龄:"
+                android:textColor="#a01919"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_Age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="保密"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
+                android:text="保密"
                 android:textColor="#a01919"
-                android:textSize="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="简介:"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textColor="#a01919"/>
+                android:text="简介:"
+                android:textColor="#a01919"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_Introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="这个人很懒,什么都没留下"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
+                android:text="这个人很懒,什么都没留下"
                 android:textColor="#a01919"
-                android:textSize="20dp"
-                android:layout_marginLeft="50dp"/>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_Modify"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="修改信息"
-            android:textSize="22dp"
-            android:layout_marginTop="100dp"
-            android:textColor="#FFFFFF"
-            android:background="#FF009588" />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_ModifyInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/shape_btn"
+                android:text="修改信息"
+                android:textColor="#FFFFFF"
+                android:textSize="22dp" />
+
+            <Button
+                android:id="@+id/btn_ModifyPassWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_btn"
+                android:text="修改密码"
+                android:textColor="#FFFFFF"
+                android:textSize="22dp" />
+
+            <Button
+                android:id="@+id/btn_LogOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_btn"
+                android:text="退出账号"
+                android:textColor="#FFFFFF"
+                android:textSize="22dp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

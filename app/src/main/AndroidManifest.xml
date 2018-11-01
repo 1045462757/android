@@ -17,34 +17,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity
-            android:name=".MainActivity"
-            android:label="主页" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/btn_Login" />
-        <activity
-            android:name=".myStudyActivity"
-            android:label="@string/btn_MyStudy" />
-        <activity
-            android:name=".QQActivity"
-            android:label="QQ" />
-        <activity
-            android:name=".CallActivity"
-            android:label="打电话" />
-        <activity
-            android:name=".Call2Activity"
-            android:label="获取数据" />
-        <activity
-            android:name=".NotificationActivity"
-            android:label="通知" />
-        <activity
-            android:name=".DetailActivity"
-            android:label="通知详情" />
+        <activity android:name=".MainActivity"
+            android:label=""/>
+
+        <activity android:name=".myStudyActivity" />
+
+        <activity android:name=".CallActivity" />
+
+        <activity android:name=".Call2Activity" />
+
+        <activity android:name=".NotificationActivity" />
+
+        <activity android:name=".DetailActivity" />
+
         <activity android:name=".VersionActivity" />
-        <activity
-            android:name=".DialogActivity"
-            android:label="对话框" />
+
+        <activity android:name=".DialogActivity" />
+
         <activity
             android:name="com.example.Tiga.Login.LoginActivity"
             android:screenOrientation="portrait"
@@ -55,19 +44,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".BookActivity" />
+
         <activity
             android:name="com.example.Tiga.Login.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
+
         <activity android:name="com.example.Tiga.Login.UserActivity" />
+
         <activity android:name="com.example.Tiga.Login.PersonalInformationActivity" />
+
         <activity android:name="com.example.Tiga.Login.ModifyInformationActivity" />
+
         <activity android:name="com.example.Tiga.Login.ModifyPassWordActivity" />
+
         <activity android:name=".WebViewActivity" />
+
         <activity android:name=".OkHttpActivity" />
+
         <activity android:name=".ParseXmlActivity" />
-        <activity android:name=".RecyclerViewActivity"></activity>
+
+        <activity android:name=".RecyclerViewActivity" />
     </application>
 
 </manifest>

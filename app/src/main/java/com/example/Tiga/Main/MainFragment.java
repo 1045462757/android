@@ -26,10 +26,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button btn_QqLogin = getActivity().findViewById(R.id.btn_QqLogin);
         Button btn_MyStudy = getActivity().findViewById(R.id.btn_MyStudy);
 
-        btn_QqLogin.setOnClickListener(this);
         btn_MyStudy.setOnClickListener(this);
 
     }
@@ -38,10 +36,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.btn_QqLogin:
-                intent.setClass(getActivity(), LoginActivity.class);
-                startActivity(intent);
-                break;
             case R.id.btn_MyStudy:
                 intent.setClass(getActivity(), myStudyActivity.class);
                 startActivity(intent);

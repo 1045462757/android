@@ -3,8 +3,9 @@ package com.example.Tiga.Login;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,16 +82,21 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
 
     //执行修改密码
     private void ModifyPassWord() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         User user = new User();
         user.setAccount(UserData.getString("Account"));
         user.setPassWord(et_NewPassWord.getText().toString());
         user.updateAll("Account = ?", user.getAccount());
+        editor.putString("PassWord", "");
+        editor.apply();
+        editor.clear();
         et_OldPassWord.getText().clear();
         et_NewPassWord.getText().clear();
         et_RepeatNewPassWord.getText().clear();
         Toast.makeText(this, "已成功修改密码,请重新登录!", Toast.LENGTH_LONG).show();
         ActivityCollector.finishAll();
-        Intent intent = new Intent(ModifyPassWordActivity.this,LoginActivity.class);
+        Intent intent = new Intent(ModifyPassWordActivity.this, LoginActivity.class);
         LoginActivity.CLEAR_PASSWORD = true;
         startActivity(intent);
     }

@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Tiga.Login.ModifyInformationActivity;
-import com.example.Tiga.Login.PersonalInformationActivity;
+import com.example.Tiga.Login.ModifyPassWordActivity;
 import com.example.Tiga.Login.User;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
@@ -33,7 +33,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_Sex;
     private TextView tv_Age;
     private TextView tv_Introduction;
-    private Button btn_Modify;
+    private Button btn_ModifyInformation;
+    private Button btn_ModifyPassWord;
+    private Button btn_logOut;
 
     private MainFragment mainFragment;
     private AboutFragment aboutFragment;
@@ -48,30 +50,35 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        drawerLayout = findViewById(R.id.DrawerLayout_Main);
 
+        //设置返回按钮为抽屉栏
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.menu);
         }
 
-
         mBtnMain = findViewById(R.id.btn_Main);
         mBtnAbout = findViewById(R.id.btn_About);
         mBtnSetting = findViewById(R.id.btn_Setting);
         btn_FloatingButton = findViewById(R.id.btn_FloatingButton);
+        drawerLayout = findViewById(R.id.DrawerLayout_Main);
+
 
         tv_Name = findViewById(R.id.tv_Name);
         tv_Sex = findViewById(R.id.tv_Sex);
         tv_Age = findViewById(R.id.tv_Age);
         tv_Introduction = findViewById(R.id.tv_Introduction);
-        btn_Modify = findViewById(R.id.btn_Modify);
+        btn_ModifyInformation = findViewById(R.id.btn_ModifyInformation);
+        btn_ModifyPassWord = findViewById(R.id.btn_ModifyPassWord);
+        btn_logOut = findViewById(R.id.btn_LogOut);
 
         mBtnMain.setOnClickListener(this);
         mBtnAbout.setOnClickListener(this);
         mBtnSetting.setOnClickListener(this);
-        btn_Modify.setOnClickListener(this);
+        btn_ModifyInformation.setOnClickListener(this);
+        btn_ModifyPassWord.setOnClickListener(this);
+        btn_logOut.setOnClickListener(this);
         btn_FloatingButton.setOnClickListener(this);
 
         mainFragment = new MainFragment();
@@ -91,6 +98,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.btn_Main:
                 replaceFragment(mainFragment);
@@ -102,11 +110,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 TransferData(settingFragment, UserData);
                 replaceFragment(settingFragment);
                 break;
-            case R.id.btn_Modify:
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this,ModifyInformationActivity.class);
+            case R.id.btn_ModifyInformation:
+                intent = new Intent();
+                intent.setClass(MainActivity.this, ModifyInformationActivity.class);
                 intent.putExtras(UserData);
                 startActivity(intent);
+                break;
+            case R.id.btn_ModifyPassWord:
+                intent = new Intent();
+                intent.setClass(MainActivity.this, ModifyPassWordActivity.class);
+                intent.putExtras(UserData);
+                startActivity(intent);
+                break;
+            case R.id.btn_LogOut:
+                OffLine();
                 break;
             case R.id.btn_FloatingButton:
                 Toast.makeText(this, "这是悬浮按钮哟!", Toast.LENGTH_SHORT).show();
@@ -121,7 +138,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         fragmentTransaction.replace(R.id.fragment_main, fragment);
         fragmentTransaction.commit();
     }
-
 
     //向Fragment传值
     private void TransferData(Fragment fragment, Bundle bundle) {
@@ -165,6 +181,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         return true;
     }
 
+    //退出
     private void ConfirmExit() {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
         builder.setTitle("通知:");
@@ -196,6 +213,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         tv_Sex.setText(user.getSex());
         tv_Age.setText(String.valueOf(user.getAge()));
         tv_Introduction.setText(user.getIntroduction());
+    }
+
+    //下线
+    private void OffLine() {
+        Intent intent = new Intent();
+        intent.setAction("com.example.OFFLINE");
+        this.sendBroadcast(intent);
     }
 
 }

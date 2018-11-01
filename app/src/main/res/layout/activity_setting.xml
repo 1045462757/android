@@ -1,63 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="设置"
-            android:textSize="24dp"
-            android:textColor="#da0a0a"
-            android:layout_gravity="center_horizontal"/>
-
-
-        <TextView
-            android:id="@+id/tv_UserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="用户:"
-            android:textSize="26dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"/>
+            android:text="设置"
+            android:textColor="#da0a0a"
+            android:textSize="24dp" />
+
 
         <Button
-            android:id="@+id/btn_PersonalInformation"
+            android:id="@+id/btn_ManageUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="个人信息"
-            android:gravity="center_vertical"
-            android:paddingLeft="40dp"
+            android:background="@drawable/shape_btn"
+            android:gravity="center"
+            android:text="用户管理"
+            android:textColor="#ffffff"
             android:textSize="20dp"
-            android:textColor="#FF009588"/>
-
-        <Button
-            android:id="@+id/btn_ModifyPassWord"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="修改密码"
-            android:gravity="center_vertical"
-            android:paddingLeft="40dp"
-            android:textSize="20dp"
-            android:textColor="#FF009588"/>
-
-        <Button
-            android:id="@+id/btn_LogOut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="退出登录"
-            android:gravity="center_vertical"
-            android:paddingLeft="40dp"
-            android:textSize="20dp"
-            android:textColor="#FF009588"/>
+            android:layout_marginHorizontal="20dp"/>
 
 
     </LinearLayout>

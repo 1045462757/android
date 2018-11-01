@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".CallActivity"
-    android:background="@mipmap/bg1">
+    tools:context=".CallActivity">
 
     <EditText
         android:id="@+id/et_phone"

@@ -17,21 +17,8 @@
 
     <!--MainActivity-->
     <string name="app_name">tiga</string>
-    <string name="btn_QqLogin">QQ登录</string>
-    <string name="btn_OtherLogin">其他登录</string>
     <string name="btn_MyStudy">我的学习</string>
     <string name="btn_Version">版本记录</string>
-
-    <!--LoginActivity-->
-    <string name="et_User">QQ号</string>
-    <string name="tv_Tip">登录遇到问题？</string>
-
-    <!--MyStudyActivity-->
-    <string name="btn_1">授权登录</string>
-    <string name="btn_2">登录</string>
-    <string name="btn_3">xx</string>
-    <string name="btn_4">xx</string>
-    <string name="btn_5">打电话</string>
 
 
     <!--CallActivity-->

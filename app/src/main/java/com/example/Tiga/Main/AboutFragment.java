@@ -29,10 +29,8 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
 
         Button btn_Version = getActivity().findViewById(R.id.btn_Version);
-        Button btn_UserList = getActivity().findViewById(R.id.btn_UserList);
-        btn_Version.setOnClickListener(this);
-        btn_UserList.setOnClickListener(this);
 
+        btn_Version.setOnClickListener(this);
     }
 
     @Override
@@ -41,10 +39,6 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_Version:
                 intent.setClass(getActivity(), VersionActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.btn_UserList:
-                intent.setClass(getActivity(), UserActivity.class);
                 startActivity(intent);
                 break;
         }

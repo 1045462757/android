@@ -16,7 +16,7 @@ import java.util.List;
 
 public class RecyclerViewActivity extends BaseActivity implements View.OnClickListener {
 
-    private List<User> users = new ArrayList<>();
+    private List<RecyclerViewActivity.User> users = new ArrayList<>();
     private TextView tv_DataNum;
     private Button btn_Add;
     private Button btn_Delete;
@@ -47,12 +47,12 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void initUsers(){
-        for (int i=0;i<1;i++){
-            User user1 = new User("1","1","一","男",20,"111");
-            User user2 = new User("2","2","二","女",21,"222");
-            User user3 = new User("3","3","三","男",22,"333");
-            User user4 = new User("4","4","四","女",23,"444");
-            User user5 = new User("5","5","五","男",24,"555");
+        for (int i=0;i<3;i++){
+            RecyclerViewActivity.User user1 = new User(R.mipmap.file,"1045462757","黄一","男","20");
+            RecyclerViewActivity.User user2 = new User(R.mipmap.call,"2020118011","陆一","女","20");
+            RecyclerViewActivity.User user3 = new User(R.mipmap.home,"15696136261","张三","男","21");
+            RecyclerViewActivity.User user4 = new User(R.mipmap.phone,"17623096116","李四","女","22");
+            RecyclerViewActivity.User user5 = new User(R.mipmap.map,"13330210791","王二","男","23");
             users.add(user1);
             users.add(user2);
             users.add(user3);
@@ -68,6 +68,71 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.btn_Delete:
                 break;
+        }
+    }
+
+    class User {
+
+        private int PhotoId;
+        private String Account;
+        private String Name;
+        private String Sex;
+        private String Age;
+
+        public User() {
+        }
+
+        public User(int photoId, String account, String name, String sex, String age) {
+            PhotoId = photoId;
+            Account = account;
+            Name = name;
+            Sex = sex;
+            Age = age;
+        }
+
+        public int getPhotoId() {
+            return PhotoId;
+        }
+
+        public void setPhotoId(int photoId) {
+            PhotoId = photoId;
+        }
+
+        public String getAccount() {
+            return Account;
+        }
+
+        public void setAccount(String account) {
+            Account = account;
+        }
+
+        public String getName() {
+            return Name;
+        }
+
+        public void setName(String name) {
+            Name = name;
+        }
+
+        public String getSex() {
+            return Sex;
+        }
+
+        public void setSex(String sex) {
+            Sex = sex;
+        }
+
+        public String getAge() {
+            return Age;
+        }
+
+        public void setAge(String age) {
+            Age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Account:" + getAccount() + "  Name:" + getName() + "  Sex:" + getSex() + "  Age:" + getAge();
         }
     }
 }

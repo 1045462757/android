@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="数据总数"
-        android:textSize="30dp" />
+        android:text="商品总数"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
