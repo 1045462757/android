@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private FloatingActionButton btn_FloatingButton;
     private DrawerLayout drawerLayout;
 
+    //抽屉界面
     private TextView tv_Name;
     private TextView tv_Sex;
     private TextView tv_Age;

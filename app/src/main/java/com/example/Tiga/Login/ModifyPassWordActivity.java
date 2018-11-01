@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.Tiga.Main.ActivityCollector;
 import com.example.Tiga.Main.BaseActivity;
 import com.example.Tiga.Main.MainActivity;

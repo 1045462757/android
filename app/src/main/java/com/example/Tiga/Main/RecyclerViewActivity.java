@@ -8,9 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.Tiga.Login.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +17,6 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
     private TextView tv_DataNum;
     private Button btn_Add;
     private Button btn_Delete;
-    private UserAdapter adapter;
-    private LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,24 +30,26 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
         btn_Add.setOnClickListener(this);
         btn_Delete.setOnClickListener(this);
 
+        //初始化数据
         initUsers();
+
         RecyclerView recyclerView = findViewById(R.id.RecyclerView);
-        layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new UserAdapter(users);
+        UserAdapter adapter = new UserAdapter(users);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        tv_DataNum.setText("用户总数:"+String.valueOf(adapter.getItemCount()));
+        tv_DataNum.setText("用户总数:" + String.valueOf(adapter.getItemCount()));
     }
 
-    private void initUsers(){
-        for (int i=0;i<3;i++){
-            RecyclerViewActivity.User user1 = new User(R.mipmap.file,"1045462757","黄一","男","20");
-            RecyclerViewActivity.User user2 = new User(R.mipmap.call,"2020118011","陆一","女","20");
-            RecyclerViewActivity.User user3 = new User(R.mipmap.home,"15696136261","张三","男","21");
-            RecyclerViewActivity.User user4 = new User(R.mipmap.phone,"17623096116","李四","女","22");
-            RecyclerViewActivity.User user5 = new User(R.mipmap.map,"13330210791","王二","男","23");
+    private void initUsers() {
+        for (int i = 0; i < 3; i++) {
+            RecyclerViewActivity.User user1 = new User(R.mipmap.file, "1045462757", "黄一", "男", "20");
+            RecyclerViewActivity.User user2 = new User(R.mipmap.call, "2020118011", "陆一", "女", "20");
+            RecyclerViewActivity.User user3 = new User(R.mipmap.home, "15696136261", "张三", "男", "21");
+            RecyclerViewActivity.User user4 = new User(R.mipmap.phone, "17623096116", "李四", "女", "22");
+            RecyclerViewActivity.User user5 = new User(R.mipmap.map, "13330210791", "王二", "男", "23");
             users.add(user1);
             users.add(user2);
             users.add(user3);
@@ -63,7 +60,7 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_Add:
                 break;
             case R.id.btn_Delete:

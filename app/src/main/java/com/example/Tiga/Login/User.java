@@ -16,7 +16,7 @@ public class User extends DataSupport {
 
     private String Introduction;
 
-    public User(){
+    public User() {
 
     }
 
@@ -79,6 +79,6 @@ public class User extends DataSupport {
 
     @Override
     public String toString() {
-        return "账号:" + getAccount() + "  密码:" + getPassWord();
+        return "账号:" + getAccount() + "  密码:" + getPassWord() + "  姓名:" + getName() + "  性别:" + getSex() + "  年龄:" + getAge() + "  简介:" + getIntroduction();
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.Tiga.Main.ExploreActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_BookStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_btn"
+        android:text="书城"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
+
+</LinearLayout>

@@ -9,10 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.Tiga.Login.ModifyPassWordActivity;
-import com.example.Tiga.Login.PersonalInformationActivity;
 import com.example.Tiga.Login.UserActivity;
 
 public class SettingFragment extends Fragment implements View.OnClickListener {

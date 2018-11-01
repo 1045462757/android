@@ -2,7 +2,6 @@ package com.example.Tiga.Main;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.Tiga.Login.User;
-
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
@@ -46,44 +42,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
-        holder.iv_photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                RecyclerViewActivity.User user = users.get(position);
-                Toast.makeText(v.getContext(), String.valueOf(user.getPhotoId()), Toast.LENGTH_SHORT).show();
-            }
-        });
         holder.Account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 RecyclerViewActivity.User user = users.get(position);
                 Toast.makeText(v.getContext(), user.getAccount(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.Name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                RecyclerViewActivity.User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.Sex.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                RecyclerViewActivity.User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getSex(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.Age.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                RecyclerViewActivity.User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getAge(), Toast.LENGTH_SHORT).show();
             }
         });
         view.setOnLongClickListener(new View.OnLongClickListener() {

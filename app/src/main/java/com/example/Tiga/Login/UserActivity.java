@@ -3,7 +3,6 @@ package com.example.Tiga.Login;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,7 +43,11 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                 Query();
                 break;
             case R.id.btn_Delete:
-                ConfirmDelete();
+                if (users == null || users.isEmpty()) {
+                    Toast.makeText(this, "暂无用户数据!", Toast.LENGTH_SHORT).show();
+                } else {
+                    ConfirmDelete();
+                }
                 break;
         }
     }
@@ -72,7 +75,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    private void ConfirmDelete(){
+    private void ConfirmDelete() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("通知:");
         builder.setMessage("你确定要删除数据吗?");

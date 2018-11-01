@@ -27,8 +27,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
 
         Button btn_MyStudy = getActivity().findViewById(R.id.btn_MyStudy);
+        Button btn_Explore = getActivity().findViewById(R.id.btn_Explore);
 
         btn_MyStudy.setOnClickListener(this);
+        btn_Explore.setOnClickListener(this);
 
     }
 
@@ -38,6 +40,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_MyStudy:
                 intent.setClass(getActivity(), myStudyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_Explore:
+                intent.setClass(getActivity(), ExploreActivity.class);
                 startActivity(intent);
                 break;
         }
