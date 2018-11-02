@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
     private TextView tv_DataNum;
     private Button btn_Add;
     private Button btn_Delete;
+    private UserAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +38,13 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
         RecyclerView recyclerView = findViewById(R.id.RecyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        UserAdapter adapter = new UserAdapter(users);
+        adapter = new UserAdapter(users);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
+        defaultItemAnimator.setAddDuration(1000);
+        defaultItemAnimator.setRemoveDuration(1000);
+        recyclerView.setItemAnimator(defaultItemAnimator);
         tv_DataNum.setText("用户总数:" + String.valueOf(adapter.getItemCount()));
     }
 
@@ -62,13 +67,15 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_Add:
+                adapter.addData(1);
                 break;
             case R.id.btn_Delete:
+                adapter.removeData(1);
                 break;
         }
     }
 
-    class User {
+    static class User {
 
         private int PhotoId;
         private String Account;

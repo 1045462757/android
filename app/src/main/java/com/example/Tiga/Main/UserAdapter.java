@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
@@ -87,6 +88,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     public int getItemCount() {
         return users.size();
+    }
+
+    public void addData(int position) {
+        RecyclerViewActivity.User user = new RecyclerViewActivity.User(R.mipmap.file, "1045462757", "黄一", "男", "20");
+        users.add(position, user);
+        notifyItemInserted(position);
+    }
+
+    public void removeData(int position) {
+        users.remove(position);
+        notifyItemRemoved(position);
     }
 
 }

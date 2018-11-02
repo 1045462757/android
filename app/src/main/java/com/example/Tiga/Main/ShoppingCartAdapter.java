@@ -1,5 +1,7 @@
 package com.example.Tiga.Main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -8,18 +10,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class BookStoreAdapter extends RecyclerView.Adapter<BookStoreAdapter.ViewHolder> {
+public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ViewHolder> {
 
     private List<Book> books;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bookstore_item, parent, false);
-        final BookStoreAdapter.ViewHolder holder = new BookStoreAdapter.ViewHolder(view);
+        final ShoppingCartAdapter.ViewHolder holder = new ShoppingCartAdapter.ViewHolder(view);
+        holder.BookView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle("通知:");
+                builder.setMessage("要移除这本书吗?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int position = holder.getAdapterPosition();
+                        Book book = books.get(position);
+                        BookStoreActivity.BooksForShoppingCart.remove(book);
+                        Toast.makeText(v.getContext(), "已移除!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
+                return true;
+            }
+        });
         holder.BookView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,8 +100,13 @@ public class BookStoreAdapter extends RecyclerView.Adapter<BookStoreAdapter.View
 
     }
 
-    public BookStoreAdapter(List<Book> bookList) {
+    public ShoppingCartAdapter(List<Book> bookList) {
         books = bookList;
+    }
+
+    public void RemoveBook(int position) {
+        books.remove(position);
+        notifyItemRemoved(position);
     }
 
 }

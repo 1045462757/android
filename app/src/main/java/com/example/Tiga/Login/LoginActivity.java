@@ -147,10 +147,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void RefreshData(boolean ClearPassWord) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isRemember = sharedPreferences.getBoolean("RememberPwd", false);
+        String Account = sharedPreferences.getString("Account", "");
+        et_Account.setText(Account);
         if (isRemember) {
-            String Account = sharedPreferences.getString("Account", "");
             String PassWord = sharedPreferences.getString("PassWord", "");
-            et_Account.setText(Account);
             if (ClearPassWord == true) {
                 et_PassWord.setText("");
                 LoginActivity.CLEAR_PASSWORD = false;
