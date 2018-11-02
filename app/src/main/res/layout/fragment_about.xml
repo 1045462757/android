@@ -4,30 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="关于"
+        android:textColor="#da0a0a"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_Version"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="关于"
-            android:textColor="#da0a0a"
-            android:textSize="24dp" />
-
-        <Button
-            android:id="@+id/btn_Version"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_btn"
-            android:text="@string/btn_Version"
-            android:textColor="#ffffff"
-            android:textSize="20dp" />
-    </LinearLayout>
+        android:background="@drawable/shape_btn"
+        android:text="@string/btn_Version"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
 </LinearLayout>

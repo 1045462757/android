@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +38,9 @@ public class BookStoreFragment extends Fragment {
 
         tv_BookNum.setText("书籍数目:" + books.size());
         RecyclerView rv_BookStore = getActivity().findViewById(R.id.rv_BookStore);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rv_BookStore.setLayoutManager(linearLayoutManager);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rv_BookStore.setLayoutManager(staggeredGridLayoutManager);
         BookStoreAdapter bookStoreAdapter = new BookStoreAdapter(books);
         rv_BookStore.setAdapter(bookStoreAdapter);
         rv_BookStore.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

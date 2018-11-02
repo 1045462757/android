@@ -31,34 +31,34 @@ public class NotificationActivity extends BaseActivity {
     public void sendNotification() {
 
         //Android 8.0 版本以上
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
             //设置通知渠道
             String channelId = "channel_1";
             String channelName = "渠道一";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             String Description = "(这条渠道很重要哦!)这是渠道一的描述";
-            NotificationChannel channel = new NotificationChannel(channelId,channelName,importance);
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
             channel.setDescription(Description);
             channel.enableLights(true);
             channel.enableVibration(true);
-            NotificationManager notificationManager =(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(channel);
 
             //设置通知内容
-            Notification.Builder builder = new Notification.Builder(this,channelId);
+            Notification.Builder builder = new Notification.Builder(this, channelId);
             builder.setSmallIcon(R.mipmap.icon)
                     .setContentTitle("tiga的消息哟")
                     .setContentText("通知终于成功了呢!!!")
                     .setAutoCancel(true);
 
             //通知Action
-            Intent intent = new Intent(NotificationActivity.this,DetailActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+            Intent intent = new Intent(NotificationActivity.this, DetailActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
             builder.setContentIntent(pendingIntent);
 
             //发送通知
-            notificationManager.notify(1,builder.build());
+            notificationManager.notify(1, builder.build());
         }
 
     }

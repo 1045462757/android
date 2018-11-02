@@ -11,27 +11,22 @@ import android.widget.Button;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
 
-    public MainFragment(){
+    public MainFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main,null );
-        return view;
+        return inflater.inflate(R.layout.fragment_main, null);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button btn_MyStudy = getActivity().findViewById(R.id.btn_MyStudy);
-        Button btn_Explore = getActivity().findViewById(R.id.btn_Explore);
-
-        btn_MyStudy.setOnClickListener(this);
-        btn_Explore.setOnClickListener(this);
-
+        getActivity().findViewById(R.id.btn_MyStudy).setOnClickListener(this);
+        getActivity().findViewById(R.id.btn_Explore).setOnClickListener(this);
     }
 
     @Override

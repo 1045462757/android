@@ -8,29 +8,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.Tiga.Login.UserActivity;
 
 public class SettingFragment extends Fragment implements View.OnClickListener {
 
-    private Button btn_ManageUser;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_setting, null);
-        return view;
+        return inflater.inflate(R.layout.activity_setting, null);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        btn_ManageUser = getActivity().findViewById(R.id.btn_ManageUser);
-
-        btn_ManageUser.setOnClickListener(this);
-
+        getActivity().findViewById(R.id.btn_ManageUser).setOnClickListener(this);
     }
 
     @Override

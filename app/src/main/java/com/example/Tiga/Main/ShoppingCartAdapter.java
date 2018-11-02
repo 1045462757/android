@@ -20,7 +20,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bookstore_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.shoppingcart_item, parent, false);
         final ShoppingCartAdapter.ViewHolder holder = new ShoppingCartAdapter.ViewHolder(view);
         holder.BookView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

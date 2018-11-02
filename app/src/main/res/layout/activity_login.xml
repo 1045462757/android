@@ -2,146 +2,140 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg7"
-    android:orientation="vertical">
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/tv_loginTitle"
+        android:textColor="#da0a0a"
+        android:textSize="24sp" />
+
+    <!--第一行-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="@string/tv_LoginTitle"
-            android:textColor="#da0a0a"
-            android:textSize="24dp" />
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/account"
+            android:padding="10dp"
+            android:src="@drawable/user" />
 
-
-        <!--第一行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
-                android:src="@drawable/user" />
-
-            <EditText
-                android:id="@+id/et_Account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/et_Id"
-                android:inputType="text"
-                android:maxLength="15"
-                android:padding="20dp" />
-
-        </LinearLayout>
-
-
-        <!--第二行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
-                android:src="@drawable/password" />
-
-
-            <EditText
-                android:id="@+id/et_PassWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/et_PassWord"
-                android:inputType="textPassword"
-                android:maxLength="20"
-                android:padding="20dp" />
-
-        </LinearLayout>
-
-
-        <!--第三行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/cb_RememberPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/cb_RememberPassWord" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_Login"
+        <EditText
+            android:id="@+id/et_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape"
-            android:text="@string/btn_Login"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp" />
-
-
-        <!--第四行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_ForgetPassWord"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00000000"
-                android:gravity="left"
-                android:paddingLeft="10dp"
-                android:paddingTop="20dp"
-                android:text="@string/btn_ForgetPassWord"
-                android:textColor="#da0a0a"
-                android:textSize="18dp" />
-
-            <Button
-                android:id="@+id/btn_Register"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#00000000"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:paddingTop="20dp"
-                android:text="@string/btn_NotOwnUser"
-                android:textColor="#da0a0a"
-                android:textSize="18dp" />
-        </LinearLayout>
+            android:hint="@string/et_id"
+            android:inputType="text"
+            android:maxLength="15"
+            android:padding="20dp" />
 
     </LinearLayout>
+
+    <!--第二行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/passWord"
+            android:padding="10dp"
+            android:src="@drawable/password" />
+
+        <EditText
+            android:id="@+id/et_PassWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/et_passWord"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+    <!--第三行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_RememberPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/cb_rememberPassWord" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape"
+        android:text="@string/btn_login"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp" />
+
+    <!--第四行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ForgetPassWord"
+            style="?android:attr/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="start"
+            android:paddingEnd="0dp"
+            android:paddingStart="10dp"
+            android:paddingTop="20dp"
+            android:text="@string/btn_forgetPassWord"
+            android:textColor="#da0a0a"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_Register"
+            style="?android:attr/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="end"
+            android:paddingEnd="10dp"
+            android:paddingStart="0dp"
+            android:paddingTop="20dp"
+            android:text="@string/btn_noId"
+            android:textColor="#da0a0a"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
 </LinearLayout>

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="40dp"
+    tools:context=".DetailActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="这是通知详细内容"
-        android:textSize="24dp"
-        android:textColor="#FF009588"/>
+        android:textColor="#FF009588"
+        android:textSize="24dp" />
 </LinearLayout>

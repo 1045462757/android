@@ -4,9 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.Tiga.Main.BaseActivity;
 import com.example.Tiga.Main.MainActivity;
 import com.example.Tiga.Main.R;
@@ -17,7 +17,6 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
     private EditText et_Sex;
     private EditText et_Age;
     private EditText et_Introduction;
-    private Button btn_Submit;
 
     private User user;
 
@@ -30,9 +29,9 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
         et_Sex = findViewById(R.id.et_Sex);
         et_Age = findViewById(R.id.et_Age);
         et_Introduction = findViewById(R.id.et_Introduction);
-        btn_Submit = findViewById(R.id.btn_Submit);
 
-        btn_Submit.setOnClickListener(this);
+        findViewById(R.id.btn_Submit).setOnClickListener(this);
+
         GetUserData();
         SetInformation();
     }
@@ -59,7 +58,6 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
         user.setIntroduction(UserData.getString("Introduction"));
     }
 
-
     //设置信息
     private void SetInformation() {
         et_Name.setText(user.getName());
@@ -68,14 +66,13 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
         et_Introduction.setText(user.getIntroduction());
     }
 
-
     //修改信息
     private void ModifyInformation() {
         user.setName(et_Name.getText().toString());
         user.setSex(et_Sex.getText().toString());
         user.setAge(Integer.parseInt(et_Age.getText().toString()));
         user.setIntroduction(et_Introduction.getText().toString());
-        user.updateAll("Account = ?",user.getAccount());
+        user.updateAll("Account = ?", user.getAccount());
         UpDataUserData();
         Toast.makeText(this, "修改成功!", Toast.LENGTH_SHORT).show();
     }
@@ -91,6 +88,7 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
         }
     }
 
+    //确定修改
     private void ConfirmModify() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("通知:");
@@ -113,10 +111,10 @@ public class ModifyInformationActivity extends BaseActivity implements View.OnCl
     }
 
     //更新用户数据
-    private void UpDataUserData(){
-        MainActivity.UserData.putString("Name",user.getName());
-        MainActivity.UserData.putString("Sex",user.getSex());
-        MainActivity.UserData.putInt("Age",user.getAge());
-        MainActivity.UserData.putString("Introduction",user.getIntroduction());
+    private void UpDataUserData() {
+        MainActivity.UserData.putString("Name", user.getName());
+        MainActivity.UserData.putString("Sex", user.getSex());
+        MainActivity.UserData.putInt("Age", user.getAge());
+        MainActivity.UserData.putString("Introduction", user.getIntroduction());
     }
 }

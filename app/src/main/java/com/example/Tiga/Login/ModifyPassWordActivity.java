@@ -7,9 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.Tiga.Main.ActivityCollector;
 import com.example.Tiga.Main.BaseActivity;
 import com.example.Tiga.Main.MainActivity;
@@ -20,7 +20,6 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
     private EditText et_OldPassWord;
     private EditText et_NewPassWord;
     private EditText et_RepeatNewPassWord;
-    private Button btn_Submit;
 
     private Bundle UserData;
 
@@ -32,9 +31,8 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
         et_OldPassWord = findViewById(R.id.et_OldPassWord);
         et_NewPassWord = findViewById(R.id.et_NewPassWord);
         et_RepeatNewPassWord = findViewById(R.id.et_RepeatNewPassWord);
-        btn_Submit = findViewById(R.id.btn_Submit);
 
-        btn_Submit.setOnClickListener(this);
+        findViewById(R.id.btn_Submit).setOnClickListener(this);
     }
 
     @Override
@@ -100,6 +98,7 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
         startActivity(intent);
     }
 
+    //确认修改
     private void ConfirmModify() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("通知:");
@@ -119,6 +118,5 @@ public class ModifyPassWordActivity extends BaseActivity implements View.OnClick
         });
         builder.show();
     }
-
 
 }

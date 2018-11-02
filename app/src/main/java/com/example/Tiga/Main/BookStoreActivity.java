@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -13,8 +12,6 @@ public class BookStoreActivity extends BaseActivity implements View.OnClickListe
 
     private BookStoreFragment bookStoreFragment;
     private ShoppingCartFragment shoppingCartFragment;
-    private Button btn_BookStore;
-    private Button btn_ShoppingCart;
 
     private ArrayList<Book> BooksForStore = new ArrayList<>();  //书城数据
     public static ArrayList<Book> BooksForShoppingCart = new ArrayList<>();  //购物车数据
@@ -24,11 +21,8 @@ public class BookStoreActivity extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_store);
 
-        btn_BookStore = findViewById(R.id.btn_BookStore);
-        btn_ShoppingCart = findViewById(R.id.btn_ShoppingCart);
-
-        btn_BookStore.setOnClickListener(this);
-        btn_ShoppingCart.setOnClickListener(this);
+        findViewById(R.id.btn_BookStore).setOnClickListener(this);
+        findViewById(R.id.btn_ShoppingCart).setOnClickListener(this);
 
         bookStoreFragment = new BookStoreFragment();
         shoppingCartFragment = new ShoppingCartFragment();

@@ -28,7 +28,6 @@
         <activity android:name=".NotificationActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".VersionActivity" />
-        <activity android:name=".DialogActivity" />
         <activity
             android:name="com.example.Tiga.Login.LoginActivity"
             android:screenOrientation="portrait"
@@ -39,7 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BookActivity" />
         <activity
             android:name="com.example.Tiga.Login.RegisterActivity"
             android:screenOrientation="portrait"

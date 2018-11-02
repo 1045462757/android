@@ -8,7 +8,6 @@ public class VersionData {
     private String title;
     private String time;
     private String content;
-    private VersionData versionData;
     public List<VersionData> VersionDataList = new ArrayList<>();
 
     public VersionData(String title, String time, String content) {
@@ -34,8 +33,8 @@ public class VersionData {
     }
 
     //添加记录
-    public void addVersionData() {
-        versionData = new VersionData("1.0.0", "2018.10.24", "节日也要努力写代码呀!");
+    private void addVersionData() {
+        VersionData versionData = new VersionData("1.0.0", "2018.10.24", "节日也要努力写代码呀!");
         VersionDataList.add(versionData);
         versionData = new VersionData("1.1.0", "2018.10.31", "一周过去了，没有多少长进呀!");
         VersionDataList.add(versionData);

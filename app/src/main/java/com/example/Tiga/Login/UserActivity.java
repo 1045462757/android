@@ -5,22 +5,21 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.example.Tiga.Main.BaseActivity;
 import com.example.Tiga.Main.R;
+
 import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button btn_Query;
-    private Button btn_Delete;
     private ListView lv_User;
 
-    private User user;
     private List<User> users = new ArrayList<>();
 
     @Override
@@ -28,12 +27,10 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        btn_Query = findViewById(R.id.btn_Query);
-        btn_Delete = findViewById(R.id.btn_Delete);
         lv_User = findViewById(R.id.lv_User);
 
-        btn_Query.setOnClickListener(this);
-        btn_Delete.setOnClickListener(this);
+        findViewById(R.id.btn_Query).setOnClickListener(this);
+        findViewById(R.id.btn_Delete).setOnClickListener(this);
     }
 
     @Override
@@ -52,20 +49,22 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    //查询用户
     private void Query() {
         users = DataSupport.findAll(User.class);
-        int nums = users.size();
+        int Num = users.size();
         ArrayAdapter<User> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, users);
         lv_User.setAdapter(adapter);
-        if (nums == 0) {
+        if (Num == 0) {
             Toast.makeText(this, "无数据!", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "成功查询到" + nums + "条数据!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "成功查询到" + Num + "条数据!", Toast.LENGTH_SHORT).show();
         }
     }
 
+    //删除用户
     private void Delete() {
-        user = DataSupport.findLast(User.class);
+        User user = DataSupport.findLast(User.class);
         if (user != null) {
             user.delete();
             Query();
@@ -75,6 +74,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    //确认删除
     private void ConfirmDelete() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("通知:");

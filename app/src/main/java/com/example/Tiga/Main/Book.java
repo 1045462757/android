@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import org.litepal.crud.DataSupport;
 
-import java.io.Serializable;
-
 public class Book extends DataSupport implements Parcelable {
 
     private int cover;

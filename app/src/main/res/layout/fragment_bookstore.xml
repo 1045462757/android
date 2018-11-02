@@ -8,9 +8,9 @@
         android:id="@+id/tv_BookNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="书城"
         android:gravity="center"
-        android:textSize="24sp"/>
+        android:text="书城"
+        android:textSize="24sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_BookStore"

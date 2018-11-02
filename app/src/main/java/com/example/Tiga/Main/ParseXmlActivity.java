@@ -4,7 +4,6 @@ import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -32,11 +31,6 @@ import okhttp3.Response;
 
 public class ParseXmlActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button btn_PullParseLocal;
-    private Button btn_PullParseHttp;
-    private Button btn_SaxParseLocal;
-    private Button btn_SaxParseHttp;
-    private Button btn_JsonObjectParseHttp;
     private TextView tv_Parse;
 
     @Override
@@ -44,18 +38,13 @@ public class ParseXmlActivity extends BaseActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parse_xml);
 
-        btn_PullParseLocal = findViewById(R.id.btn_PullParseLocal);
-        btn_PullParseHttp = findViewById(R.id.btn_PullParseHttp);
-        btn_SaxParseLocal = findViewById(R.id.btn_SaxParseLocal);
-        btn_SaxParseHttp = findViewById(R.id.btn_SaxParseHttp);
-        btn_JsonObjectParseHttp = findViewById(R.id.btn_JsonObjectParseHttp);
         tv_Parse = findViewById(R.id.tv_parse);
 
-        btn_PullParseLocal.setOnClickListener(this);
-        btn_PullParseHttp.setOnClickListener(this);
-        btn_SaxParseLocal.setOnClickListener(this);
-        btn_SaxParseHttp.setOnClickListener(this);
-        btn_JsonObjectParseHttp.setOnClickListener(this);
+        findViewById(R.id.btn_PullParseLocal).setOnClickListener(this);
+        findViewById(R.id.btn_PullParseHttp).setOnClickListener(this);
+        findViewById(R.id.btn_SaxParseLocal).setOnClickListener(this);
+        findViewById(R.id.btn_SaxParseHttp).setOnClickListener(this);
+        findViewById(R.id.btn_JsonObjectParseHttp).setOnClickListener(this);
     }
 
     @Override
@@ -82,7 +71,6 @@ public class ParseXmlActivity extends BaseActivity implements View.OnClickListen
 
     class User {
 
-        private int PhotoId;
         private String Account;
         private String Name;
         private String Sex;
@@ -91,20 +79,11 @@ public class ParseXmlActivity extends BaseActivity implements View.OnClickListen
         public User() {
         }
 
-        public User(int photoId, String account, String name, String sex, String age) {
-            PhotoId = photoId;
+        public User(String account, String name, String sex, String age) {
             Account = account;
             Name = name;
             Sex = sex;
             Age = age;
-        }
-
-        public int getPhotoId() {
-            return PhotoId;
-        }
-
-        public void setPhotoId(int photoId) {
-            PhotoId = photoId;
         }
 
         public String getAccount() {

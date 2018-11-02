@@ -15,9 +15,6 @@ import java.util.List;
 public class RecyclerViewActivity extends BaseActivity implements View.OnClickListener {
 
     private List<RecyclerViewActivity.User> users = new ArrayList<>();
-    private TextView tv_DataNum;
-    private Button btn_Add;
-    private Button btn_Delete;
     private UserAdapter adapter;
 
     @Override
@@ -25,12 +22,10 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
 
-        tv_DataNum = findViewById(R.id.tv_DataNum);
-        btn_Add = findViewById(R.id.btn_Add);
-        btn_Delete = findViewById(R.id.btn_Delete);
+        TextView tv_DataNum = findViewById(R.id.tv_DataNum);
 
-        btn_Add.setOnClickListener(this);
-        btn_Delete.setOnClickListener(this);
+        findViewById(R.id.btn_Add).setOnClickListener(this);
+        findViewById(R.id.btn_Delete).setOnClickListener(this);
 
         //初始化数据
         initUsers();

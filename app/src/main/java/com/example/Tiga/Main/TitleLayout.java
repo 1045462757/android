@@ -13,11 +13,10 @@ import android.widget.LinearLayout;
 
 
 //自定义控件
-
 public class TitleLayout extends LinearLayout {
     public TitleLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        LayoutInflater.from(context).inflate(R.layout.title,this);
+        LayoutInflater.from(context).inflate(R.layout.title, this);
 
         Button btn_TitleBack = findViewById(R.id.title_back);
         Button btn_TitleEdit = findViewById(R.id.title_edit);
@@ -25,7 +24,7 @@ public class TitleLayout extends LinearLayout {
         btn_TitleBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity)getContext()).finish();
+                ((Activity) getContext()).finish();
             }
         });
 
@@ -38,7 +37,7 @@ public class TitleLayout extends LinearLayout {
 
     }
 
-    private void ConfirmExit(){
+    private void ConfirmExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("通知:");
         builder.setMessage("你确定要退出吗?");

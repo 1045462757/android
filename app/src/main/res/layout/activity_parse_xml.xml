@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.Tiga.Main.ParseXmlActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.Tiga.Main.ParseXmlActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,31 +14,31 @@
         <Button
             android:id="@+id/btn_PullParseLocal"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="PULL解析本地xml"/>
+            android:layout_weight="1"
+            android:text="PULL解析本地xml" />
 
         <Button
             android:id="@+id/btn_PullParseHttp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="PULL解析网络xml"/>
+            android:layout_weight="1"
+            android:text="PULL解析网络xml" />
 
 
         <Button
             android:id="@+id/btn_SaxParseLocal"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="SAX解析本地xml"/>
+            android:layout_weight="1"
+            android:text="SAX解析本地xml" />
 
         <Button
             android:id="@+id/btn_SaxParseHttp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="SAX解析网络xml"/>
+            android:layout_weight="1"
+            android:text="SAX解析网络xml" />
 
 
     </LinearLayout>
@@ -51,9 +51,9 @@
         <Button
             android:id="@+id/btn_JsonObjectParseHttp"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="JSONObject解析网络json"/>
+            android:layout_weight="1"
+            android:text="JSONObject解析网络json" />
 
     </LinearLayout>
 
@@ -62,9 +62,9 @@
         android:id="@+id/tv_parse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
         android:text="解析数据"
-        android:textSize="20dp"
         android:textColor="#d31212"
-        android:paddingHorizontal="20dp"/>
+        android:textSize="20dp" />
 
 </LinearLayout>

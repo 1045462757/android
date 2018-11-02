@@ -1,25 +1,55 @@
 <resources>
 
     <!--LoginActivity-->
-    <string name="tv_LoginTitle">登录</string>
-    <string name="et_Id">请输入账号</string>
-    <string name="et_PassWord">请输入密码</string>
-    <string name="cb_RememberPassWord">记住密码</string>
-    <string name="btn_NotOwnUser">没有账号?</string>
-    <string name="btn_Login">登录</string>
-    <string name="btn_ForgetPassWord">忘记密码?</string>
+    <string name="tv_loginTitle">登录</string>
+    <string name="et_id">请输入账号</string>
+    <string name="et_passWord">请输入密码</string>
+    <string name="cb_rememberPassWord">记住密码</string>
+    <string name="btn_noId">没有账号?</string>
+    <string name="btn_login">登录</string>
+    <string name="btn_forgetPassWord">忘记密码?</string>
+    <string name="account">账号</string>
+    <string name="passWord">密码</string>
 
     <!--RegisterActivity-->
-    <string name="tv_RegisterTitle">注册</string>
-    <string name="et_RepeatPassWord">请再次输入密码</string>
-    <string name="btn_Register">注册</string>
+    <string name="tv_registerTitle">注册</string>
+    <string name="et_repeatPassWord">请再次输入密码</string>
+    <string name="btn_register">注册</string>
 
+    <!--ModifyInformationActivity-->
+    <string name="tv_modifyInformation">修改信息</string>
+    <string name="tv_name">姓名</string>
+    <string name="et_inputName">请输入姓名</string>
+    <string name="tv_sex">性别</string>
+    <string name="et_inputSex">请输入性别</string>
+    <string name="tv_age">年龄</string>
+    <string name="et_inputAge">请输入年龄</string>
+    <string name="tv_introduction">简介</string>
+    <string name="et_inputIntroduction">请输入简介</string>
+    <string name="btn_commit">确认</string>
+
+    <!--ModifyPassWordActivity-->
+    <string name="tv_modifyPassWord">修改密码</string>
+    <string name="tv_oldPassWord">旧密码</string>
+    <string name="et_inputOldPassWord">请输入旧密码</string>
+    <string name="tv_newPassWord">新密码</string>
+    <string name="et_inputNewPassWord">请输入新密码</string>
+
+    <!--UserActivity-->
+    <string name="btn_query">查询</string>
+    <string name="btn_delete">删除</string>
 
     <!--MainActivity-->
     <string name="app_name">tiga</string>
     <string name="btn_MyStudy">我的学习</string>
     <string name="btn_Version">版本记录</string>
-
+    <string name="btn_homePage">主页</string>
+    <string name="btn_about">关于</string>
+    <string name="btn_setting">设置</string>
+    <string name="tv_personalInformation">个人信息</string>
+    <string name="btn_modifyInformation">修改信息</string>
+    <string name="btn_modifyPassWord">修改密码</string>
+    <string name="btn_logout">注销</string>
 
     <!--CallActivity-->
     <string name="et_phone">请输入电话号码</string>
@@ -27,9 +57,10 @@
     <string name="btn_call">打电话</string>
     <string name="btn_sms">发短信</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_shopping_cart">ShoppingCartActivity</string>
-
+    <!--Book-->
+    <string name="bookName">书名:%1$s</string>
+    <string name="bookAuthor">作者:%1$s</string>
+    <string name="bookPrices">价格:%1$f</string>
+    <string name="bookPages">页数:%1$d</string>
 
 </resources>

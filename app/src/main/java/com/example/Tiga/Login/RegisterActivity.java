@@ -2,12 +2,14 @@ package com.example.Tiga.Login;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.Tiga.Main.BaseActivity;
 import com.example.Tiga.Main.R;
+
 import org.litepal.crud.DataSupport;
+
 import java.util.List;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
@@ -15,7 +17,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private EditText et_Account;
     private EditText et_PassWord;
     private EditText et_PassWord2;
-    private Button btn_Register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         et_Account = findViewById(R.id.et_Account);
         et_PassWord = findViewById(R.id.et_PassWord);
         et_PassWord2 = findViewById(R.id.et_PassWord2);
-        btn_Register = findViewById(R.id.btn_Register);
 
-        btn_Register.setOnClickListener(this);
+        findViewById(R.id.btn_Register).setOnClickListener(this);
     }
 
     @Override
@@ -42,7 +42,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
         }
     }
-
 
     //判断输入是否有效(输入不能为空，密码必须一致且不能小于6位)
     private boolean InputIsValid() {

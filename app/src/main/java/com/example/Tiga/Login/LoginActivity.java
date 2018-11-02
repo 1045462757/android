@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,12 +19,9 @@ import java.util.List;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button btn_Login;
     private EditText et_Account;
     private EditText et_PassWord;
     private CheckBox cb_RememberPwd;
-    private Button btn_ForgetPassWord;
-    private Button btn_Register;
 
     private User user;
 
@@ -36,24 +32,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn_Login = findViewById(R.id.btn_Login);
         et_Account = findViewById(R.id.et_Account);
         et_PassWord = findViewById(R.id.et_PassWord);
-        btn_ForgetPassWord = findViewById(R.id.btn_ForgetPassWord);
         cb_RememberPwd = findViewById(R.id.cb_RememberPassword);
-        btn_Register = findViewById(R.id.btn_Register);
 
-        btn_Login.setOnClickListener(this);
-        btn_ForgetPassWord.setOnClickListener(this);
-        btn_Register.setOnClickListener(this);
+        findViewById(R.id.btn_Login).setOnClickListener(this);
+        findViewById(R.id.btn_ForgetPassWord).setOnClickListener(this);
+        findViewById(R.id.btn_Register).setOnClickListener(this);
 
         et_PassWord.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     et_PassWord.getText().clear();
-                } else {
-
                 }
             }
         });
@@ -151,7 +142,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         et_Account.setText(Account);
         if (isRemember) {
             String PassWord = sharedPreferences.getString("PassWord", "");
-            if (ClearPassWord == true) {
+            if (ClearPassWord) {
                 et_PassWord.setText("");
                 LoginActivity.CLEAR_PASSWORD = false;
             } else {

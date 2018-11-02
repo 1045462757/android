@@ -12,21 +12,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Tiga.Login.ModifyInformationActivity;
 import com.example.Tiga.Login.ModifyPassWordActivity;
 import com.example.Tiga.Login.User;
-import com.getbase.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button mBtnMain;
-    private Button mBtnAbout;
-    private Button mBtnSetting;
-    private FloatingActionButton btn_FloatingButton;
     private DrawerLayout drawerLayout;
 
     //抽屉界面
@@ -34,9 +28,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_Sex;
     private TextView tv_Age;
     private TextView tv_Introduction;
-    private Button btn_ModifyInformation;
-    private Button btn_ModifyPassWord;
-    private Button btn_logOut;
 
     private MainFragment mainFragment;
     private AboutFragment aboutFragment;
@@ -59,28 +50,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             actionBar.setHomeAsUpIndicator(R.drawable.menu);
         }
 
-        mBtnMain = findViewById(R.id.btn_Main);
-        mBtnAbout = findViewById(R.id.btn_About);
-        mBtnSetting = findViewById(R.id.btn_Setting);
-        btn_FloatingButton = findViewById(R.id.btn_FloatingButton);
         drawerLayout = findViewById(R.id.DrawerLayout_Main);
-
-
         tv_Name = findViewById(R.id.tv_Name);
         tv_Sex = findViewById(R.id.tv_Sex);
         tv_Age = findViewById(R.id.tv_Age);
         tv_Introduction = findViewById(R.id.tv_Introduction);
-        btn_ModifyInformation = findViewById(R.id.btn_ModifyInformation);
-        btn_ModifyPassWord = findViewById(R.id.btn_ModifyPassWord);
-        btn_logOut = findViewById(R.id.btn_LogOut);
 
-        mBtnMain.setOnClickListener(this);
-        mBtnAbout.setOnClickListener(this);
-        mBtnSetting.setOnClickListener(this);
-        btn_ModifyInformation.setOnClickListener(this);
-        btn_ModifyPassWord.setOnClickListener(this);
-        btn_logOut.setOnClickListener(this);
-        btn_FloatingButton.setOnClickListener(this);
+        findViewById(R.id.btn_Main).setOnClickListener(this);
+        findViewById(R.id.btn_About).setOnClickListener(this);
+        findViewById(R.id.btn_Setting).setOnClickListener(this);
+        findViewById(R.id.btn_ModifyInformation).setOnClickListener(this);
+        findViewById(R.id.btn_ModifyPassWord).setOnClickListener(this);
+        findViewById(R.id.btn_LogOut).setOnClickListener(this);
+        findViewById(R.id.btn_FloatingButton).setOnClickListener(this);
 
         mainFragment = new MainFragment();
         aboutFragment = new AboutFragment();
@@ -89,7 +71,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         replaceFragment(mainFragment);
 
         UserData = GetUserData();
-
     }
 
     @Override
@@ -148,8 +129,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //获取用户数据
     private Bundle GetUserData() {
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        return bundle;
+        return intent.getExtras();
     }
 
     //菜单
@@ -172,7 +152,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 ConfirmExit();
                 break;
             case R.id.about:
-                Toast.makeText(this, "tiga", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "黄一版权所有!", Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);

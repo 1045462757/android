@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationActivity"
-    tools:targetApi="11"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="40dp"
+    tools:context=".NotificationActivity"
+    tools:targetApi="11">
 
 
     <Button
         android:id="@+id/send_notice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FF009588"
         android:text="发送通知"
         android:textColor="#FFFFFF"
-        android:background="#FF009588"
-        android:textSize="22dp"/>
+        android:textSize="22dp" />
 
 </LinearLayout>

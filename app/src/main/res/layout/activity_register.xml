@@ -1,124 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg5"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context="com.example.Tiga.Login.RegisterActivity">
+    android:paddingHorizontal="20dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/tv_registerTitle"
+        android:textColor="#da0a0a"
+        android:textSize="24sp" />
+
+    <!--第一行-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp">
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="@string/tv_RegisterTitle"
-            android:textColor="#da0a0a"
-            android:textSize="24dp" />
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/account"
+            android:padding="10dp"
+            android:src="@drawable/user" />
 
-
-        <!--第一行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
-                android:src="@drawable/user" />
-
-            <EditText
-                android:id="@+id/et_Account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/et_Id"
-                android:inputType="text"
-                android:maxLength="15"
-                android:padding="20dp" />
-
-        </LinearLayout>
-
-
-        <!--第二行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
-                android:src="@drawable/password" />
-
-            <EditText
-                android:id="@+id/et_PassWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/et_PassWord"
-                android:inputType="textPassword"
-                android:maxLength="20"
-                android:padding="20dp" />
-
-        </LinearLayout>
-
-
-        <!--第三行-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:padding="10dp"
-                android:src="@drawable/password" />
-
-            <EditText
-                android:id="@+id/et_PassWord2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/et_RepeatPassWord"
-                android:inputType="textPassword"
-                android:maxLength="20"
-                android:padding="20dp" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_Register"
+        <EditText
+            android:id="@+id/et_Account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape"
-            android:text="@string/btn_Register"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp" />
+            android:hint="@string/et_id"
+            android:inputType="text"
+            android:maxLength="15"
+            android:padding="20dp" />
 
     </LinearLayout>
+
+    <!--第二行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/passWord"
+            android:padding="10dp"
+            android:src="@drawable/password" />
+
+        <EditText
+            android:id="@+id/et_PassWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/et_passWord"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+    <!--第三行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/passWord"
+            android:padding="10dp"
+            android:src="@drawable/password" />
+
+        <EditText
+            android:id="@+id/et_PassWord2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/et_repeatPassWord"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape"
+        android:text="@string/btn_register"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp" />
 
 </LinearLayout>

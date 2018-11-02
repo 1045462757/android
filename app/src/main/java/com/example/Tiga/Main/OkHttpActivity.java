@@ -3,20 +3,21 @@ package com.example.Tiga.Main;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
+
 import java.io.IOException;
 import java.io.StringReader;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class OkHttpActivity extends BaseActivity implements View.OnClickListener {
 
-    private Button btn_Send;
     private TextView tv_Data;
 
     @Override
@@ -24,10 +25,8 @@ public class OkHttpActivity extends BaseActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok_http);
 
-        btn_Send = findViewById(R.id.btn_Send);
+        findViewById(R.id.btn_Send).setOnClickListener(this);
         tv_Data = findViewById(R.id.tv_Data);
-
-        btn_Send.setOnClickListener(this);
     }
 
     @Override
@@ -92,10 +91,10 @@ public class OkHttpActivity extends BaseActivity implements View.OnClickListener
                         break;
                     case XmlPullParser.END_TAG:
                         if ("User".equals(nodeName)) {
-                            Log.d("OkHttpActivity", "Account is "+Account);
-                            Log.d("OkHttpActivity", "Name is "+Name);
-                            Log.d("OkHttpActivity", "Sex is "+Sex);
-                            Log.d("OkHttpActivity", "Age is "+Age);
+                            Log.d("OkHttpActivity", "Account is " + Account);
+                            Log.d("OkHttpActivity", "Name is " + Name);
+                            Log.d("OkHttpActivity", "Sex is " + Sex);
+                            Log.d("OkHttpActivity", "Age is " + Age);
                             Log.d("OkHttpActivity", "一条数据已解析完毕");
                         } else if ("Users".equals(nodeName)) {
                             Log.d("OkHttpActivity", "全部数据已解析完毕，解析地址为:http://10.100.247.208:8080/xml/user.xml");

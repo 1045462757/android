@@ -4,7 +4,6 @@
     android:id="@+id/DrawerLayout_Main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg8"
     android:orientation="vertical"
     tools:layout_editor_absoluteY="25dp">
 
@@ -19,7 +18,6 @@
             android:layout_height="wrap_content">
 
         </android.support.v7.widget.Toolbar>
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -38,7 +36,9 @@
                     android:layout_height="match_parent">
 
                 </FrameLayout>
+
             </LinearLayout>
+
         </ScrollView>
 
         <!--悬浮按钮-->
@@ -51,7 +51,6 @@
 
         </com.getbase.floatingactionbutton.FloatingActionButton>
 
-
         <!--底部导航栏-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,39 +58,40 @@
 
             <Button
                 android:id="@+id/btn_Main"
+                style="?android:attr/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/shape_tap"
-                android:text="主  页"
+                android:text="@string/btn_homePage"
                 android:textColor="#ca0e0e"
-                android:textSize="26dp" />
+                android:textSize="26sp" />
 
             <Button
                 android:id="@+id/btn_About"
+                style="?android:attr/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/shape_tap"
-                android:text="关  于"
+                android:text="@string/btn_about"
                 android:textColor="#ca0e0e"
-                android:textSize="26dp" />
-
+                android:textSize="26sp" />
 
             <Button
                 android:id="@+id/btn_Setting"
+                style="?android:attr/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/shape_tap"
-                android:text="设  置"
+                android:text="@string/btn_setting"
                 android:textColor="#ca0e0e"
-                android:textSize="26dp" />
+                android:textSize="26sp" />
+
         </LinearLayout>
 
-
     </LinearLayout>
-
 
     <!--抽屉栏-->
     <LinearLayout
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:text="个人信息"
+            android:text="@string/tv_personalInformation"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -123,19 +123,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="姓名:"
+                android:text="@string/tv_name"
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:text="不告诉你"
+                android:text=""
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -149,19 +149,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="性别:"
+                android:text="@string/tv_sex"
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:text="你猜呀"
+                android:text=""
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -175,19 +175,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="年龄:"
+                android:text="@string/tv_age"
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:text="保密"
+                android:text=""
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -201,19 +201,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="简介:"
+                android:text="@string/tv_introduction"
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_Introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="20dp"
-                android:text="这个人很懒,什么都没留下"
+                android:text=""
                 android:textColor="#a01919"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -228,9 +228,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
                 android:background="@drawable/shape_btn"
-                android:text="修改信息"
+                android:text="@string/btn_modifyInformation"
                 android:textColor="#FFFFFF"
-                android:textSize="22dp" />
+                android:textSize="22sp" />
 
             <Button
                 android:id="@+id/btn_ModifyPassWord"
@@ -238,9 +238,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_btn"
-                android:text="修改密码"
+                android:text="@string/btn_modifyPassWord"
                 android:textColor="#FFFFFF"
-                android:textSize="22dp" />
+                android:textSize="22sp" />
 
             <Button
                 android:id="@+id/btn_LogOut"
@@ -248,12 +248,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_btn"
-                android:text="退出账号"
+                android:text="@string/btn_logout"
                 android:textColor="#FFFFFF"
-                android:textSize="22dp" />
+                android:textSize="22sp" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 
