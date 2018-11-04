@@ -12,14 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCartFragment extends Fragment {
+public class ShoppingCartFragment extends Fragment implements View.OnClickListener {
 
     private List<Book> books = new ArrayList<>();
-    private ShoppingCartAdapter adapter;
 
     @Nullable
     @Override
@@ -32,19 +32,20 @@ public class ShoppingCartFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TextView tv_BookNum = getActivity().findViewById(R.id.tv_BookNum);
-
         GetDataForShoppingCart();
 
-        tv_BookNum.setText("书籍数目:" + books.size());
+        TextView tv_totalPrices = getActivity().findViewById(R.id.tv_totalPrices);
+        tv_totalPrices.setText("  总价:" + String.valueOf(totalPrices()));
+        getActivity().findViewById(R.id.btn_pay).setOnClickListener(this);
+
         RecyclerView rv_ShoppingCart = getActivity().findViewById(R.id.rv_ShoppingCart);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rv_ShoppingCart.setLayoutManager(linearLayoutManager);
-        adapter = new ShoppingCartAdapter(books);
+        ShoppingCartAdapter adapter = new ShoppingCartAdapter(books);
         rv_ShoppingCart.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
-        defaultItemAnimator.setAddDuration(1000);
-        defaultItemAnimator.setRemoveDuration(1000);
+        defaultItemAnimator.setAddDuration(100);
+        defaultItemAnimator.setRemoveDuration(100);
         rv_ShoppingCart.setItemAnimator(defaultItemAnimator);
         rv_ShoppingCart.setAdapter(adapter);
     }
@@ -55,4 +56,21 @@ public class ShoppingCartFragment extends Fragment {
         books = bundle.getParcelableArrayList("BooksForShoppingCart");
     }
 
+    //计算购物车总价
+    private double totalPrices() {
+        double totalPrices = 0.0;
+        for (int i = 0; i < books.size(); i++) {
+            totalPrices += books.get(i).getPrice();
+        }
+        return totalPrices;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_pay:
+                Toast.makeText(v.getContext(), "结算功能正在开发中!", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

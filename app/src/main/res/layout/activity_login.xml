@@ -32,7 +32,7 @@
             android:src="@drawable/user" />
 
         <EditText
-            android:id="@+id/et_Account"
+            android:id="@+id/et_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -60,7 +60,7 @@
             android:src="@drawable/password" />
 
         <EditText
-            android:id="@+id/et_PassWord"
+            android:id="@+id/et_passWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -80,7 +80,7 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/cb_RememberPassword"
+            android:id="@+id/cb_rememberPassWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -90,7 +90,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_Login"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
@@ -107,7 +107,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_ForgetPassWord"
+            android:id="@+id/btn_forgetPassWord"
             style="?android:attr/buttonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btn_Register"
+            android:id="@+id/btn_register"
             style="?android:attr/buttonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

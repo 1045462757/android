@@ -32,7 +32,7 @@
             android:src="@drawable/user" />
 
         <EditText
-            android:id="@+id/et_Account"
+            android:id="@+id/et_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -60,7 +60,7 @@
             android:src="@drawable/password" />
 
         <EditText
-            android:id="@+id/et_PassWord"
+            android:id="@+id/et_passWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -88,7 +88,7 @@
             android:src="@drawable/password" />
 
         <EditText
-            android:id="@+id/et_PassWord2"
+            android:id="@+id/et_repeatPassWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
@@ -101,7 +101,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_Register"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"

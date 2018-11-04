@@ -19,57 +19,59 @@ import java.util.List;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    private EditText et_Account;
-    private EditText et_PassWord;
-    private CheckBox cb_RememberPwd;
-
-    private User user;
+    private EditText et_account;
+    private EditText et_passWord;
+    private CheckBox cb_rememberPassWord;
 
     public static boolean CLEAR_PASSWORD = false;
+
+    private User user;
+    private String account;
+    private String passWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        et_Account = findViewById(R.id.et_Account);
-        et_PassWord = findViewById(R.id.et_PassWord);
-        cb_RememberPwd = findViewById(R.id.cb_RememberPassword);
+        et_account = findViewById(R.id.et_account);
+        et_passWord = findViewById(R.id.et_passWord);
+        cb_rememberPassWord = findViewById(R.id.cb_rememberPassWord);
 
-        findViewById(R.id.btn_Login).setOnClickListener(this);
-        findViewById(R.id.btn_ForgetPassWord).setOnClickListener(this);
-        findViewById(R.id.btn_Register).setOnClickListener(this);
+        findViewById(R.id.btn_login).setOnClickListener(this);
+        findViewById(R.id.btn_forgetPassWord).setOnClickListener(this);
+        findViewById(R.id.btn_register).setOnClickListener(this);
 
-        et_PassWord.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        et_passWord.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    et_PassWord.getText().clear();
+                    et_passWord.getText().clear();
                 }
             }
         });
 
-        RefreshData(CLEAR_PASSWORD);
+        refreshData(CLEAR_PASSWORD);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_Login:
-                if (InputIsValid()) {
-                    if (DataIsValid()) {
-                        IsRememberMe();
+            case R.id.btn_login:
+                if (inputIsValid()) {
+                    if (dataIsValid()) {
+                        isRememberPassWord();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtras(PackageData());
+                        intent.putExtras(packageData());
                         startActivity(intent);
                         finish();
                     }
                 }
                 break;
-            case R.id.btn_ForgetPassWord:
+            case R.id.btn_forgetPassWord:
                 Toast.makeText(this, "暂时没有办法帮你哦!", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.btn_Register:
+            case R.id.btn_register:
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 break;
@@ -77,11 +79,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     //判断输入是否有效(输入不能为空)
-    private boolean InputIsValid() {
-        if (et_Account.getText().toString().equals("")) {
+    private boolean inputIsValid() {
+        account = et_account.getText().toString();
+        passWord = et_passWord.getText().toString();
+        if (account.equals("")) {
             Toast.makeText(LoginActivity.this, "请输入账号!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (et_PassWord.getText().toString().equals("")) {
+        } else if (passWord.equals("")) {
             Toast.makeText(LoginActivity.this, "请输入密码!", Toast.LENGTH_SHORT).show();
             return false;
         } else {
@@ -90,24 +94,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     //判断数据是否有效(账号，密码是否正确)
-    private boolean DataIsValid() {
-        String Account = et_Account.getText().toString();
-        String PassWord = et_PassWord.getText().toString();
-        List<User> users = DataSupport.where("Account = ?", Account).find(User.class);
+    private boolean dataIsValid() {
+        List<User> users = DataSupport.where("Account = ?", account).find(User.class);
         if (users == null || users.isEmpty()) {
             Toast.makeText(this, "该账号不存在!", Toast.LENGTH_SHORT).show();
             return false;
         } else {
             user = new User();
-            for (User user1 : users) {
-                user.setAccount(user1.getAccount());
-                user.setPassWord(user1.getPassWord());
-                user.setName(user1.getName());
-                user.setSex(user1.getSex());
-                user.setAge(user1.getAge());
-                user.setIntroduction(user1.getIntroduction());
-            }
-            if (PassWord.equals(user.getPassWord())) {
+            user.setPassWord(users.get(0).getPassWord());
+            if (passWord.equals(user.getPassWord())) {
+                user.setAccount(users.get(0).getAccount());
+                user.setName(users.get(0).getName());
+                user.setSex(users.get(0).getSex());
+                user.setAge(users.get(0).getAge());
+                user.setIntroduction(users.get(0).getIntroduction());
                 Toast.makeText(this, "登录成功!", Toast.LENGTH_SHORT).show();
                 return true;
             } else {
@@ -118,10 +118,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     //判断是否记住密码
-    private void IsRememberMe() {
+    private void isRememberPassWord() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (cb_RememberPwd.isChecked()) {
+        if (cb_rememberPassWord.isChecked()) {
             editor.putString("Account", user.getAccount());
             editor.putString("PassWord", user.getPassWord());
             editor.putBoolean("RememberPwd", true);
@@ -135,25 +135,25 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     //复现登录信息
-    private void RefreshData(boolean ClearPassWord) {
+    private void refreshData(boolean ClearPassWord) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isRemember = sharedPreferences.getBoolean("RememberPwd", false);
         String Account = sharedPreferences.getString("Account", "");
-        et_Account.setText(Account);
+        et_account.setText(Account);
         if (isRemember) {
             String PassWord = sharedPreferences.getString("PassWord", "");
             if (ClearPassWord) {
-                et_PassWord.setText("");
+                et_passWord.setText("");
                 LoginActivity.CLEAR_PASSWORD = false;
             } else {
-                et_PassWord.setText(PassWord);
+                et_passWord.setText(PassWord);
             }
-            cb_RememberPwd.setChecked(true);
+            cb_rememberPassWord.setChecked(true);
         }
     }
 
     //打包用户数据
-    private Bundle PackageData() {
+    private Bundle packageData() {
         Bundle bundle = new Bundle();
         bundle.putString("Account", user.getAccount());
         bundle.putString("PassWord", user.getPassWord());

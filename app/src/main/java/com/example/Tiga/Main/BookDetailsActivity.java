@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class BookDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Book book;
@@ -38,8 +40,9 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_AddShoppingCart:
-                AddShoppingCart();
-                Toast.makeText(this, "已成功添加到购物车中！", Toast.LENGTH_SHORT).show();
+                if (isInShoppingCart()) {
+                    AddShoppingCart();
+                }
                 break;
         }
     }
@@ -47,6 +50,7 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
     //将目标书籍添加到购物车中
     private void AddShoppingCart() {
         BookStoreActivity.BooksForShoppingCart.add(book);
+        Toast.makeText(this, "已成功添加到购物车中！", Toast.LENGTH_SHORT).show();
     }
 
     //获取目标书籍数据
@@ -62,5 +66,18 @@ public class BookDetailsActivity extends AppCompatActivity implements View.OnCli
         Author.setText(String.format(getResources().getString(R.string.bookAuthor), book.getAuthor()));
         Prices.setText(String.format(getResources().getString(R.string.bookPrices), book.getPrice()));
         Pages.setText(String.format(getResources().getString(R.string.bookPages), book.getPages()));
+    }
+
+    //判断目标书籍是否在购物车中
+    private boolean isInShoppingCart() {
+        GetBookForStore();
+        ArrayList<Book> books = BookStoreActivity.BooksForShoppingCart;
+        for (int i = 0; i < books.size(); i++) {
+            if (book.getName().equals(books.get(i).getName())) {
+                Toast.makeText(this, "该书已在购物车中!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 }

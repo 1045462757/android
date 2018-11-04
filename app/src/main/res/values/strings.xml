@@ -1,6 +1,6 @@
 <resources>
 
-    <!--LoginActivity-->
+    <!--loginActivity-->
     <string name="tv_loginTitle">登录</string>
     <string name="et_id">请输入账号</string>
     <string name="et_passWord">请输入密码</string>

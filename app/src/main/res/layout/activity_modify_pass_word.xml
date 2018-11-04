@@ -42,7 +42,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_OldPassWord"
+                android:id="@+id/et_oldPassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -68,7 +68,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_NewPassWord"
+                android:id="@+id/et_newPassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -94,7 +94,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_RepeatNewPassWord"
+                android:id="@+id/et_repeatNewPassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -106,7 +106,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_Submit"
+            android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

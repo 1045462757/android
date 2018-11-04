@@ -42,7 +42,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_Name"
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -68,7 +68,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_Sex"
+                android:id="@+id/et_sex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -94,7 +94,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_Age"
+                android:id="@+id/et_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -120,7 +120,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/et_Introduction"
+                android:id="@+id/et_introduction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -135,7 +135,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_Submit"
+            android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

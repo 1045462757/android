@@ -33,8 +33,10 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         int position = holder.getAdapterPosition();
-                        Book book = books.get(position);
-                        BookStoreActivity.BooksForShoppingCart.remove(book);
+//                        Book book = books.get(position);
+//                        BookStoreActivity.BooksForShoppingCart.remove(book);
+                        books.remove(position);
+                        notifyItemRemoved(position);
                         Toast.makeText(v.getContext(), "已移除!", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -4,6 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--标题栏-->
+    <com.example.Tiga.Main.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.Tiga.Main.TitleLayout>
 
     <!--主界面-->
     <LinearLayout

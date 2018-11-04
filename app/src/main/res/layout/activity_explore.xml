@@ -6,6 +6,13 @@
     android:orientation="vertical"
     tools:context="com.example.Tiga.Main.ExploreActivity">
 
+    <!--标题栏-->
+    <com.example.Tiga.Main.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.Tiga.Main.TitleLayout>
+
     <Button
         android:id="@+id/btn_BookStore"
         android:layout_width="match_parent"

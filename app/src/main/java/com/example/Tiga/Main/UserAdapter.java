@@ -1,7 +1,5 @@
 package com.example.Tiga.Main;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,35 +41,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
-        holder.Account.setOnClickListener(new View.OnClickListener() {
+        holder.UserView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 RecyclerViewActivity.User user = users.get(position);
-                Toast.makeText(v.getContext(), user.getAccount(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(final View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                builder.setTitle("通知:");
-                builder.setMessage("你确定要删除数据吗?");
-                builder.setCancelable(true);
-                builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(v.getContext(), "暂时删除不了哦!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                builder.show();
-                return true;
+                Toast.makeText(v.getContext(), user.toString(), Toast.LENGTH_SHORT).show();
             }
         });
         return holder;

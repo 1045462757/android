@@ -6,7 +6,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
-        defaultItemAnimator.setAddDuration(1000);
-        defaultItemAnimator.setRemoveDuration(1000);
+        defaultItemAnimator.setAddDuration(100);
+        defaultItemAnimator.setRemoveDuration(100);
         recyclerView.setItemAnimator(defaultItemAnimator);
         tv_DataNum.setText("用户总数:" + String.valueOf(adapter.getItemCount()));
     }
@@ -65,7 +64,7 @@ public class RecyclerViewActivity extends BaseActivity implements View.OnClickLi
                 adapter.addData(1);
                 break;
             case R.id.btn_Delete:
-                adapter.removeData(1);
+                adapter.removeData(0);
                 break;
         }
     }

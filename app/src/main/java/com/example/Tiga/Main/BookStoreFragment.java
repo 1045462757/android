@@ -32,18 +32,15 @@ public class BookStoreFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        TextView tv_BookNum = getActivity().findViewById(R.id.tv_BookNum);
-
         GetDataForBookStore();
 
-        tv_BookNum.setText("书籍数目:" + books.size());
         RecyclerView rv_BookStore = getActivity().findViewById(R.id.rv_BookStore);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rv_BookStore.setLayoutManager(staggeredGridLayoutManager);
         BookStoreAdapter bookStoreAdapter = new BookStoreAdapter(books);
         rv_BookStore.setAdapter(bookStoreAdapter);
-        rv_BookStore.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+//        rv_BookStore.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
     }
 
     //接受书城数据
