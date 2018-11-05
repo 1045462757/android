@@ -1,13 +1,13 @@
 package com.example.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.coolweather.gson.Forecast;
 import com.example.coolweather.gson.Weather;
+import com.example.coolweather.service.AutoUpdateService;
 import com.example.coolweather.util.HttpUtil;
 import com.example.coolweather.util.Utility;
 
@@ -61,8 +62,6 @@ public class WeatherActivity extends AppCompatActivity {
 
     private TextView tv_sportText;
 
-    private String weatherId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,9 +91,12 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString = sharedPreferences.getString("weather", null);
 
+        /**
+         * 加载必应每日一图
+         */
         String bingPicture = sharedPreferences.getString("bingPicture", null);
         if (bingPicture != null) {
             Glide.with(this).load(bingPicture).into(iv_bingPicture);
@@ -102,21 +104,27 @@ public class WeatherActivity extends AppCompatActivity {
             loadBingPicture();
         }
 
+        /**
+         * 加载天气信息
+         */
         if (weatherString != null) {
             //有缓存时直接解析天气数据
             Weather weather = Utility.handleWeatherResponse(weatherString);
-            weatherId = weather.basic.weatherId;
             showWeatherInfo(weather);
         } else {
             //无缓存时去服务器查询天气
-            weatherId = getIntent().getStringExtra("weather_id");
+            String weatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
             requestWeather(weatherId);
         }
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                String weatherString = sharedPreferences.getString("weather", null);
+                Weather weather = Utility.handleWeatherResponse(weatherString);
+                String weatherId = weather.basic.weatherId;
                 requestWeather(weatherId);
+                loadBingPicture();
             }
         });
     }
@@ -164,6 +172,13 @@ public class WeatherActivity extends AppCompatActivity {
      * 处理并展示Weather实体类中的数据
      */
     private void showWeatherInfo(Weather weather) {
+        if (weather != null && "ok".equals(weather.status)) {
+            //启动后台服务
+            Intent intent = new Intent(this, AutoUpdateService.class);
+            startService(intent);
+        } else {
+            Toast.makeText(this, "启动后台服务更新失败!", Toast.LENGTH_SHORT).show();
+        }
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
         String degree = weather.now.temperature + "℃";
@@ -196,17 +211,23 @@ public class WeatherActivity extends AppCompatActivity {
         tv_carWashText.setText(carWash);
         tv_sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+//        Toast.makeText(this, "更新天气成功！", Toast.LENGTH_SHORT).show();
     }
 
     /**
-     * 加载必应每日一图
+     * 从服务器上获取必应每日一图
      */
     private void loadBingPicture() {
         String requestBingPicture = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOkHttpRequest(requestBingPicture, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+//                        Toast.makeText(WeatherActivity.this, "无网络,更新必应每日一图失败！", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -218,6 +239,7 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+//                        Toast.makeText(WeatherActivity.this, "成功更新必应每日一图!", Toast.LENGTH_SHORT).show();
                         Glide.with(WeatherActivity.this).load(bingPicture).into(iv_bingPicture);
                     }
                 });

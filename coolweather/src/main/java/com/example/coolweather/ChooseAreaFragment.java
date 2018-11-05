@@ -225,6 +225,14 @@ public class ChooseAreaFragment extends Fragment {
                             }
                         }
                     });
+                } else {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            closeProgressDialog();
+                            Toast.makeText(getContext(), "获取信息失败!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
