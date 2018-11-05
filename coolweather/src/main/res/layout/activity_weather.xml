@@ -8,7 +8,6 @@
         android:id="@+id/iv_bingPicture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/back"
         android:scaleType="centerCrop" />
 
     <android.support.v4.widget.DrawerLayout

@@ -1,6 +1,7 @@
 package com.example.coolweather;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +35,12 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class WeatherActivity extends AppCompatActivity implements View.OnClickListener {
+
+    //必应每日一图api
+    public static String requestBingPicture = "http://guolin.tech/api/bing_pic";
+
+    //随机图片api
+    public static String requestRandomPicture = "http://img.xjh.me/random_img.php?return=url";
 
     public DrawerLayout drawerLayout;
 
@@ -92,13 +99,15 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
         String weatherString = sharedPreferences.getString("weather", null);
 
         /*
-         * 加载必应每日一图
+         * 加载背景图片
          */
         String bingPicture = sharedPreferences.getString("bingPicture", null);
         if (bingPicture != null) {
-            Glide.with(this).load(bingPicture).into(iv_bingPicture);
+            bingPicture = "http:" + bingPicture;
+            Glide.with(WeatherActivity.this).load(bingPicture).into(iv_bingPicture);
         } else {
-            loadBingPicture();
+            //默认加载必应每日一图
+            loadBingBackgroundPicture(requestBingPicture);
         }
 
         /*
@@ -156,6 +165,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String responseText = response.body().string();
+//               Log.d("WeatherActivity", "服务器返回的信息:" + responseText);
                 final Weather weather = Utility.handleWeatherResponse(responseText);
                 runOnUiThread(new Runnable() {
                     @Override
@@ -168,7 +178,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                             Snackbar snackbar = Snackbar.make(weatherLayout, "天气更新成功!", Snackbar.LENGTH_SHORT);
                             snackbar.show();
                             View snackView = snackbar.getView();
-                            snackView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                            snackView.setBackgroundColor(getResources().getColor(R.color.colorSuccess));
                         } else {
                             Snackbar snackbar = Snackbar.make(weatherLayout, "获取天气信息失败!", Snackbar.LENGTH_SHORT);
                             snackbar.show();
@@ -226,12 +236,11 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     /**
-     * 从服务器上获取必应每日一图
+     * 从服务器上获取背景图片
      */
-    public void loadBingPicture() {
+    public void loadBingBackgroundPicture(final String api) {
         showProgressDialog();
-        String requestBingPicture = "http://guolin.tech/api/bing_pic";
-        HttpUtil.sendOkHttpRequest(requestBingPicture, new Callback() {
+        HttpUtil.sendOkHttpRequest(api, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 runOnUiThread(new Runnable() {
@@ -249,6 +258,7 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String bingPicture = response.body().string();
+//                Log.d("WeatherActivity", "服务器返回的信息:" + bingPicture);
                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
                 editor.putString("bingPicture", bingPicture);
                 editor.apply();
@@ -256,11 +266,15 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void run() {
                         closeProgressDialog();
-                        Snackbar snackbar = Snackbar.make(weatherLayout, "必应每日一图更新成功!", Snackbar.LENGTH_SHORT);
-                        snackbar.show();
+                        Snackbar snackbar = Snackbar.make(weatherLayout, "背景图片更新成功!", Snackbar.LENGTH_SHORT);
                         View snackView = snackbar.getView();
-                        snackView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                        Glide.with(WeatherActivity.this).load(bingPicture).into(iv_bingPicture);
+                        snackView.setBackgroundColor(getResources().getColor(R.color.colorSuccess));
+                        String uri = "";
+                        if (api != requestBingPicture) {
+                            uri = "http:";
+                        }
+                        Glide.with(WeatherActivity.this).load(uri + bingPicture).into(iv_bingPicture);
+                        snackbar.show();
                     }
                 });
             }
@@ -305,5 +319,26 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
         }
+    }
+
+    //退出
+    private void ConfirmExit() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("通知:");
+        builder.setMessage("你确定要退出吗?");
+        builder.setCancelable(true);
+        builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("否", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }
