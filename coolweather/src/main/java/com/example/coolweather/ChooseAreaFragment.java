@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.coolweather.db.City;
 import com.example.coolweather.db.County;
@@ -111,6 +111,9 @@ public class ChooseAreaFragment extends Fragment {
                     queryCities();
                 } else if (currentLevel == LEVEL_CITY) {
                     queryProvinces();
+                } else if (currentLevel == LEVEL_PROVINCE) {
+                    WeatherActivity weatherActivity = (WeatherActivity) getActivity();
+                    weatherActivity.replaceFragment(new HomeFragment());
                 }
             }
         });
@@ -122,7 +125,7 @@ public class ChooseAreaFragment extends Fragment {
      */
     private void queryProvinces() {
         tv_title.setText("中国");
-        btn_back.setVisibility(View.GONE);
+        btn_back.setVisibility(View.VISIBLE);
         provinceList = DataSupport.findAll(Province.class);
         if (provinceList.size() > 0) {
             dataList.clear();
@@ -195,7 +198,10 @@ public class ChooseAreaFragment extends Fragment {
                     @Override
                     public void run() {
                         closeProgressDialog();
-                        Toast.makeText(getContext(), "无网络!", Toast.LENGTH_SHORT).show();
+                        Snackbar snackbar = Snackbar.make(getView(), "无网络!", Snackbar.LENGTH_SHORT);
+                        snackbar.show();
+                        View snackView = snackbar.getView();
+                        snackView.setBackgroundColor(getResources().getColor(R.color.colorWarning));
                     }
                 });
             }
@@ -230,7 +236,10 @@ public class ChooseAreaFragment extends Fragment {
                         @Override
                         public void run() {
                             closeProgressDialog();
-                            Toast.makeText(getContext(), "获取信息失败!", Toast.LENGTH_SHORT).show();
+                            Snackbar snackbar = Snackbar.make(getView(), "获取城市信息失败!", Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+                            View snackView = snackbar.getView();
+                            snackView.setBackgroundColor(getResources().getColor(R.color.colorWarning));
                         }
                     });
                 }
