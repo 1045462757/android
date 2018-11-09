@@ -5,12 +5,16 @@ import android.text.TextUtils;
 import com.example.coolweather.db.City;
 import com.example.coolweather.db.County;
 import com.example.coolweather.db.Province;
+import com.example.coolweather.gson.Joke;
+import com.example.coolweather.gson.News;
 import com.example.coolweather.gson.Weather;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Utility {
 
@@ -91,6 +95,40 @@ public class Utility {
             JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
             String weatherContent = jsonArray.getJSONObject(0).toString();
             return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 将返回的JSON数据解析成Joke实体类
+     */
+    public static Joke handleJokeResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            String jokeContent = jsonObject.getJSONObject("Result").toString();
+            return new Gson().fromJson(jokeContent, Joke.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 将返回的JSON数据解析成News实体类集合
+     */
+    public static ArrayList<News> handleNewsResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONObject jsonObject1 = jsonObject.getJSONObject("result");
+            JSONArray jsonArray = jsonObject1.getJSONArray("data");
+            ArrayList<News> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                String newsContent = jsonArray.getJSONObject(i).toString();
+                list.add(new Gson().fromJson(newsContent, News.class));
+            }
+            return list;
         } catch (JSONException e) {
             e.printStackTrace();
         }

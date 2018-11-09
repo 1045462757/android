@@ -71,7 +71,7 @@ public class AutoUpdateService extends Service {
                         editor.apply();
                     }
                 }
-            });
+            },1);
         }
     }
 
@@ -93,6 +93,6 @@ public class AutoUpdateService extends Service {
                 editor.putString("bingPicture", bingPicture);
                 editor.apply();
             }
-        });
+        },1);
     }
 }
